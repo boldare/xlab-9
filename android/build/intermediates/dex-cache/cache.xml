@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.4.0_857a3aa80d0e960ef921c43440c4ad26e38269a6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/internal_impl-23.4.0_4182fa982ebb79d4d7c697ac0a11f52088b8b4a6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.4.0_39ed6aece4c710493302a8e8bc3508fbb7d6921d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="1137942adeb03984c1311b662363dd38fc238fd3">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-0.11.0_2eaebebfa5d9df664a965155d114a4c3343f2551.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.4.1/63994437f62bc861bc20c605d12962f7246116d1/okhttp-urlconnection-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="63994437f62bc861bc20c605d12962f7246116d1">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.4.1_c91b6a3163524e706da6a5687f1c3ffb69b176b6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="3341b66c54367e777a0647e2db96c045329bfeab">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-0.11.0_3f0e0dd6e3a27af413d8d03fb305db8befe5f0d2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_b6fb5214425ca1d55cd1533160b8c858e0d12682.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.42.3/jars/libs/infer-annotations-1.5.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="dcac634e137395f79693ec760f081a86eb2bd84e">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/infer-annotations-1.5_428509ef80dcec358d5d92ca997f9e2230bfcca0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/library-2.4.0_6f796643d12c7c65fcdb1f9aedfc2b895f62aaf7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0_84fa031c6fbf602bf59ddf70f30bc188402e15b9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.0.1_6190a02666335c549c9e5250072626f1ce29cfcf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ca63c521b5745ae9a09629d7ca67ff6bc2a967fe">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-base-0.11.0_a8b79059087e0eb84fe880ccddb47eb34976c7b6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/support-annotations-23.4.0_b3985af9df4e2ddbd8b82550beface1155e917d0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_810d708de995ac4d0c1cb6addcf2834ee57a5934.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_0e35726972e339f4e1a1036a13e6648c50f1e7bb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-ws/3.4.1/8ace66ef7002d98f633377c9e67daeeb196d8c3b/okhttp-ws-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="8ace66ef7002d98f633377c9e67daeeb196d8c3b">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/okhttp-ws-3.4.1_eda4a747ddda1fbc69d8ba8000ca64a28707d3b5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/com.facebook.soloader-soloader-0.1.0_e3a7252637fabeb23bcea7f8a3b1d0eccb89e191.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d31aadf33187c37a7cd63dc1b769f8c6e33f78c3">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-0.11.0_4cf81853f4ffedc5893f595eba80cc5f484f902e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="98786c1770b531b9194fb6448b2a2692c64074b6">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-0.11.0_87893b7e6e4da38eaf12445acac2569747f9e092.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_51c5f119f506f22aa5d6343d84c2e199d9e70ddb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="2b8a01ad9da5d26d0067894c22e87597bca2c500">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-okhttp3-0.11.0_4b3a680d77f85dd35c8323498143a3b676726710.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.9.0/f824591a0016efbaeddb8300bee54832a1398cfa/okio-1.9.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/okio-1.9.0_ded2ae3918da79c52324adda8b17dc57890d4ad0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.42.3/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="962b06c207e808c0557ffd6163ac584025a96021">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/com.facebook.react-react-native-0.42.3_05234e2d150e396617ad73d4c744ddcab999cfdc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/sebastianmusial/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.4.1/c7c4f9e35c2fd5900da24f9872e3971801f08ce0/okhttp-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/okhttp-3.4.1_2967031b9ccab17cac37c8c08bf8bdc74ad6c435.jar" />
+    </item>
+
+</items>
