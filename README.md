@@ -1,8 +1,8 @@
 # xlab-react-native
 
-## Requirements :school_satchel:
+## What you'll need :school_satchel:
 
-- node `brew install node`
+- NodeJS `brew install node`
 - watchman `brew install watchman`
 
 For android:
@@ -13,7 +13,7 @@ For android:
 
 For iOS:
 
-- Xcode
+- MacOS, Xcode
 
 ***
 
@@ -21,5 +21,7 @@ For iOS:
 
 - `react-native run-android` - adroid emulator
 - `react-native run-ios` - iOS emulator
+
+- `http://localhost:8081/debugger-ui` - debugger ui
 
 ***
