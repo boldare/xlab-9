@@ -6,6 +6,7 @@ import {
     TextInput,
     Button,
     Alert,
+    Platform,
 } from 'react-native'
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 
@@ -87,7 +88,10 @@ export class LoginView extends Component {
                         />
                     </View>
                 </View>
-                <KeyboardSpacer />
+                {
+                    Platform.OS === 'ios' &&
+                    <KeyboardSpacer />
+                }
             </ScrollView>
         )
     }
