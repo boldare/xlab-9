@@ -1,8 +1,9 @@
-import { firebaseConfig } from '../config';
-import * as firebase from 'firebase';
-const firebaseApp = firebase.initializeApp(firebaseConfig);
+import { firebaseConfig } from '../config'
+import * as firebase from 'firebase'
+import { Alert } from 'react-native'
+const firebaseApp = firebase.initializeApp(firebaseConfig)
 
-export default class AuthUtil {
+export class AuthUtil {
     static async checkAuthStatus() {
         try {
             let firebaseUser = await firebaseApp.auth().onAuthStateChanged()     
@@ -14,7 +15,7 @@ export default class AuthUtil {
 
     static async signIn(email, password) {
         try {
-            let user = await firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+            let user = await firebase.auth().signInWithEmailAndPassword(email, password)
             return user
         } catch (err) {
             console.log(err)
@@ -24,10 +25,19 @@ export default class AuthUtil {
 
     static async signUp(email, password) {
         try {
-            let user = await firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+            let user = await firebase.auth().createUserWithEmailAndPassword(email, password)
             return user
-        } catch (error) {
+        } catch (err) {
             console.log(err)
+
+            Alert.alert(
+                'Error',
+                'Validation ' + err,
+                [
+                    {text: 'OK'},
+                ],
+                { cancelable: false }
+            )
             return false
         }
     }

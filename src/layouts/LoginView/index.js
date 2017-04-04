@@ -4,7 +4,8 @@ import {
     View,
     Text,
     TextInput,
-    Button
+    Button,
+    Alert,
 } from 'react-native'
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 
@@ -25,8 +26,22 @@ export class LoginView extends Component {
 
     }
 
-    signUpButton() {
-
+    async signUpButton() {
+        try {
+            let user = await AuthUtil.signUp(this.state.email, this.state.password)
+            if (user) {
+                Alert.alert(
+                'Success',
+                    'Created account ' + user.email,
+                    [
+                        {text: 'OK'},
+                    ],
+                    { cancelable: false }
+                )
+            }
+        } catch (err) {
+            console.log(err)
+        }
     }
 
     render() {
