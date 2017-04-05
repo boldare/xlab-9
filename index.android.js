@@ -6,12 +6,12 @@
 
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
-import ChatComponent from './src/components/ChatComponent'
+import AppRoutes from './src/routes'
 
 export default class xlab extends Component {
   render() {
     return (
-      <ChatComponent />
+      <AppRoutes />
     );
   }
 }
