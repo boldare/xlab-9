@@ -23,5 +23,6 @@ For iOS:
 - `react-native run-ios` - iOS emulator
 
 - `http://localhost:8081/debugger-ui` - debugger ui
+- `Cmd + K` or `Cmd + shift + K` - open keyboard
 
 ***
