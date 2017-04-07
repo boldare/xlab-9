@@ -9,9 +9,8 @@ import {
     Platform,
 } from 'react-native'
 import KeyboardSpacer from 'react-native-keyboard-spacer';
-
-import { styles } from './styles'
-import { AuthUtil } from '../../utils'
+import * as firebase from 'firebase';
+import { styles } from './styles';
 
 export class LoginView extends Component {
     constructor(props) {
@@ -20,29 +19,33 @@ export class LoginView extends Component {
         this.state = {
             email: '',
             password: '',
+            error: false,
         }
     }
 
-    signInButton() {
+    handleSignIn() {
+        this.setState({ error: false })
 
+        firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+            .then(userData => this.successAlert(userData))
+            .catch(error => this.setState({ error: error.message }));
     }
 
-    async signUpButton() {
-        try {
-            let user = await AuthUtil.signUp(this.state.email, this.state.password)
-            if (user) {
-                Alert.alert(
-                'Success',
-                    'Created account ' + user.email,
-                    [
-                        {text: 'OK'},
-                    ],
-                    { cancelable: false }
-                )
-            }
-        } catch (err) {
-            console.log(err)
-        }
+    handleSignUp() {
+        this.setState({ error: false })
+
+        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+            .then(userData => this.successAlert(userData))
+            .catch(error => this.setState({ error: error.message }));
+    }
+
+    successAlert(user) {
+        Alert.alert(
+            'success',
+            'You are ' + user.email,
+            [{ text: 'OK' }],
+            { cancelable: false }
+        );
     }
 
     render() {
@@ -59,6 +62,11 @@ export class LoginView extends Component {
                         Aby dołączy do chatu {'\n'}
                         nalezy się zarejestrowac i zalogowac {'\n'}
                     </Text>
+                    { this.state.error &&
+                        <Text style={styles.error}>
+                            { this.state.error }
+                        </Text>
+                    }
                     <TextInput
                         style={styles.input}
                         underlineColorAndroid="#dceaec"
@@ -75,7 +83,7 @@ export class LoginView extends Component {
                     <View style={[styles.buttonContainer, { marginTop: 10 }]}>
                         <Button
                             style={styles.button}
-                            onPress={() => { this.signInButton() }}
+                            onPress={() => { this.handleSignIn() }}
                             title="Zaloguj się"
                         />
                     </View>
@@ -83,7 +91,7 @@ export class LoginView extends Component {
                         <Button
                             style={styles.button}
                             color="#000000"
-                            onPress={() => { this.signUpButton() }}
+                            onPress={() => { this.handleSignUp() }}
                             title="Zarejestruj się"
                         />
                     </View>

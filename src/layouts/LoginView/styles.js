@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
   error: {
     textAlign: 'center',
     color: '#d81b1b',
-    marginBottom: 5,
+    margin: 10,
   },
   buttonContainer: {
     marginBottom: 10,
