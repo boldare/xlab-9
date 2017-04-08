@@ -8,9 +8,9 @@ import {
     Alert,
     Platform,
 } from 'react-native'
-import KeyboardSpacer from 'react-native-keyboard-spacer';
-import * as firebase from 'firebase';
-import { styles } from './styles';
+import KeyboardSpacer from 'react-native-keyboard-spacer'
+import * as firebase from 'firebase'
+import { styles } from './../styles'
 
 export class LoginView extends Component {
     constructor(props) {
@@ -28,7 +28,7 @@ export class LoginView extends Component {
 
         firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
             .then(userData => this.successAlert(userData))
-            .catch(error => this.setState({ error: error.message }));
+            .catch(error => this.setState({ error: error.message }))
     }
 
     handleSignUp() {
@@ -36,7 +36,7 @@ export class LoginView extends Component {
 
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
             .then(userData => this.successAlert(userData))
-            .catch(error => this.setState({ error: error.message }));
+            .catch(error => this.setState({ error: error.message }))
     }
 
     successAlert(user) {
@@ -45,7 +45,7 @@ export class LoginView extends Component {
             'You are ' + user.email,
             [{ text: 'OK' }],
             { cancelable: false }
-        );
+        )
     }
 
     render() {
@@ -55,10 +55,10 @@ export class LoginView extends Component {
                 scrollEnabled={false}
             >
                 <View style={styles.row}>
-                    <Text style={styles.welcome}>
+                    <Text style={styles.title}>
                         React Native Messanger
                     </Text>
-                    <Text style={styles.instructions}>
+                    <Text style={styles.paragraph}>
                         Aby dołączy do chatu {'\n'}
                         nalezy się zarejestrowac i zalogowac {'\n'}
                     </Text>
