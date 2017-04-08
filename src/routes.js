@@ -35,7 +35,7 @@ export default class Navigation extends Component {
     setSplashScreen() {
         setTimeout(() => {
             this.setState({ isLoaded: true });
-        }, 1000);
+        }, 1500);
     }
 
     navigatorRenderScene(route, navigator) {

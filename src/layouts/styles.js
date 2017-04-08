@@ -15,30 +15,39 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'column',
   },
-  welcome: {
+  title: {
+    margin: 10,
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    backgroundColor: 'rgba(0,0,0,0)',
   },
-  instructions: {
+  paragraph: {
+    marginBottom: 5,
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
+    backgroundColor: 'rgba(0,0,0,0)',
   },
   error: {
+    margin: 10,
     textAlign: 'center',
     color: '#d81b1b',
-    margin: 10,
+    backgroundColor: 'rgba(0,0,0,0)',
   },
   buttonContainer: {
     marginBottom: 10,
   },
   input: {
     width: '90%',
-    marginBottom: 10,
     height: 34,
+    marginBottom: 10,
     padding: 10,
-    fontSize: 12,
     backgroundColor: '#dceaec',
-  }
+    fontSize: 12,
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });

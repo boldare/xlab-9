@@ -4,15 +4,33 @@ import {
     View,
     Text,
     Image,
+    Animated,
 } from 'react-native'
-import KeyboardSpacer from 'react-native-keyboard-spacer';
-import { styles } from './styles';
-import * as firebase from 'firebase';
+import KeyboardSpacer from 'react-native-keyboard-spacer'
+import { styles } from './../styles'
+import * as firebase from 'firebase'
+
+import backgroundImage from './background.jpeg'
+import logoImage from './logo.png'
 
 export class SplashScreen extends Component {
     constructor(props) {
-        super(props);
+        super(props)
+
+        this.state = {
+            fadeAnim: new Animated.Value(0),
+        };
     }
+
+     componentDidMount() {
+          Animated.timing(
+            this.state.fadeAnim,
+            {
+              toValue: 1,
+              duration: 1000,
+            },
+          ).start()
+        }
 
     render() {
         return (
@@ -20,10 +38,12 @@ export class SplashScreen extends Component {
                 contentContainerStyle={styles.container}
                 scrollEnabled={false}
             >
-                <Image
-                    style={{width: 200, height: 100}}
-                    source={{uri: 'https://i.vimeocdn.com/portrait/9217376_300x300'}}
-                />
+                <Animated.Image source={backgroundImage} style={[styles.backgroundImage, { opacity: this.state.fadeAnim}]}>
+                    <Image
+                        style={{width: 200, height: 100, marginBottom: 250}}
+                        source={logoImage}
+                    />
+                </Animated.Image>
             </ScrollView>
         )
     }

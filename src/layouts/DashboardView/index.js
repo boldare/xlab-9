@@ -5,17 +5,17 @@ import {
     Text,
     Button,
 } from 'react-native'
-import KeyboardSpacer from 'react-native-keyboard-spacer';
-import { styles } from './styles';
-import * as firebase from 'firebase';
+import KeyboardSpacer from 'react-native-keyboard-spacer'
+import { styles } from './../styles'
+import * as firebase from 'firebase'
 
 export class DashboardView extends Component {
     constructor(props) {
-        super(props);
+        super(props)
     }
 
     handleLogOut() {
-        firebase.auth().signOut();
+        firebase.auth().signOut()
     }
 
     render() {
@@ -25,10 +25,10 @@ export class DashboardView extends Component {
                 scrollEnabled={false}
             >
                 <View style={styles.row}>
-                    <Text style={styles.welcome}>
+                    <Text style={styles.title}>
                         Jesteś zalogowany jako
                     </Text>
-                    <Text style={styles.instructions}>
+                    <Text style={styles.paragraph}>
                         {this.props.user.email}
                     </Text>
                     <View style={styles.buttonContainer}>
