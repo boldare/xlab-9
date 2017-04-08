@@ -6,9 +6,7 @@ import {
     Image,
     Animated,
 } from 'react-native'
-import KeyboardSpacer from 'react-native-keyboard-spacer'
 import { styles } from './../styles'
-import * as firebase from 'firebase'
 
 import backgroundImage from './background.jpeg'
 import logoImage from './logo.png'
@@ -22,15 +20,15 @@ export class SplashScreen extends Component {
         };
     }
 
-     componentDidMount() {
-          Animated.timing(
+    componentDidMount() {
+        Animated.timing(
             this.state.fadeAnim,
             {
-              toValue: 1,
-              duration: 1000,
+                toValue: 1,
+                duration: 1000,
             },
-          ).start()
-        }
+        ).start()
+    }
 
     render() {
         return (
