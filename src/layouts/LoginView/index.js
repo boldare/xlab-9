@@ -4,13 +4,16 @@ import {
     View,
     Text,
     TextInput,
-    Button,
     Alert,
     Platform,
+    Image,
+    Animated,
 } from 'react-native'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import * as firebase from 'firebase'
 import { styles } from './../styles'
+import backgroundImage from './../../images/background.jpg'
+import { Button } from './../../components/Button'
 
 export class LoginView extends Component {
     constructor(props) {
@@ -20,14 +23,24 @@ export class LoginView extends Component {
             email: '',
             password: '',
             error: false,
+            fadeAnim: new Animated.Value(0),
         }
+    }
+
+    componentDidMount() {
+        Animated.timing(
+            this.state.fadeAnim,
+            {
+                toValue: 1,
+                duration: 1000,
+            },
+        ).start()
     }
 
     handleSignIn() {
         this.setState({ error: false })
 
         firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-            .then(userData => this.successAlert(userData))
             .catch(error => this.setState({ error: error.message }))
     }
 
@@ -35,7 +48,6 @@ export class LoginView extends Component {
         this.setState({ error: false })
 
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-            .then(userData => this.successAlert(userData))
             .catch(error => this.setState({ error: error.message }))
     }
 
@@ -54,52 +66,55 @@ export class LoginView extends Component {
                 contentContainerStyle={styles.container}
                 scrollEnabled={false}
             >
-                <View style={styles.row}>
-                    <Text style={styles.title}>
-                        React Native Messanger
-                    </Text>
-                    <Text style={styles.paragraph}>
-                        Aby dołączy do chatu {'\n'}
-                        nalezy się zarejestrowac i zalogowac {'\n'}
-                    </Text>
-                    { this.state.error &&
-                        <Text style={styles.error}>
-                            { this.state.error }
-                        </Text>
+                <Animated.Image source={backgroundImage} style={[styles.backgroundImage, { opacity: this.state.fadeAnim}]}>
+                    <View style={styles.row}>
+                        <View style={styles.section}>
+                            <Text style={styles.title}>
+                                Witamy w aplikacji
+                            </Text>
+                            <Text style={styles.paragraph}>
+                                Aby dołączy do chatu {'\n'}
+                                nalezy się zarejestrowac i zalogowac {'\n'}
+                            </Text>
+                            { this.state.error &&
+                                <Text style={styles.error}>
+                                    { this.state.error }
+                                </Text>
+                            }
+                        </View>
+                        <TextInput
+                            style={styles.input}
+                            underlineColorAndroid="rgba(0,0,0,0)"
+                            onChangeText={(email) => this.setState({email})}
+                            value={this.state.email}
+                            placeholder="E-mail"
+                        />
+                        <TextInput
+                            style={styles.input}
+                            underlineColorAndroid="rgba(0,0,0,0)"
+                            onChangeText={(password) => this.setState({password})}
+                            value={this.state.password}
+                            placeholder="Hasło"
+                            secureTextEntry
+                        />
+                        <View style={[styles.buttonContainer, { marginTop: 10 }]}>
+                            <Button
+                                onPress={() => { this.handleSignIn() }}
+                                title="Zaloguj się"
+                            />
+                        </View>
+                        <View style={styles.buttonContainer}>
+                            <Button
+                                onPress={() => { this.handleSignUp() }}
+                                title="Zarejestruj się"
+                            />
+                        </View>
+                    </View>
+                    {
+                        Platform.OS === 'ios' &&
+                        <KeyboardSpacer />
                     }
-                    <TextInput
-                        style={styles.input}
-                        underlineColorAndroid="#dceaec"
-                        onChangeText={(email) => this.setState({email})}
-                        value={this.state.email}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        underlineColorAndroid="#dceaec"
-                        onChangeText={(password) => this.setState({password})}
-                        value={this.state.password}
-                        secureTextEntry
-                    />
-                    <View style={[styles.buttonContainer, { marginTop: 10 }]}>
-                        <Button
-                            style={styles.button}
-                            onPress={() => { this.handleSignIn() }}
-                            title="Zaloguj się"
-                        />
-                    </View>
-                    <View style={styles.buttonContainer}>
-                        <Button
-                            style={styles.button}
-                            color="#000000"
-                            onPress={() => { this.handleSignUp() }}
-                            title="Zarejestruj się"
-                        />
-                    </View>
-                </View>
-                {
-                    Platform.OS === 'ios' &&
-                    <KeyboardSpacer />
-                }
+                </Animated.Image>
             </ScrollView>
         )
     }

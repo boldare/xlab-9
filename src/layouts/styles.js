@@ -11,13 +11,18 @@ export const styles = StyleSheet.create({
   },
   row: {
     flex:1,
+    width: 300,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
   },
+  section: {
+      marginTop: 15,
+      marginBottom: 15,
+  },
   title: {
-    margin: 10,
-    fontSize: 20,
+    marginBottom: 15,
+    fontSize: 24,
     textAlign: 'center',
     backgroundColor: 'rgba(0,0,0,0)',
   },
@@ -34,14 +39,16 @@ export const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0)',
   },
   buttonContainer: {
-    marginBottom: 10,
+    marginBottom: 8,
+    width: '100%',
   },
   input: {
-    width: '90%',
-    height: 34,
+    width: '100%',
+    height: 38,
     marginBottom: 10,
     padding: 10,
-    backgroundColor: '#dceaec',
+    backgroundColor: 'rgba(255,255,255,0.6)',
+    borderRadius: 5,
     fontSize: 12,
   },
   backgroundImage: {
@@ -50,4 +57,9 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  avatar: {
+      width: 40,
+      height: 40,
+      borderRadius: 20,
+  }
 });
