@@ -6,9 +6,10 @@ import {
     View,
 } from 'react-native'
 import {
+    SplashScreen,
     LoginView,
     DashboardView,
-    SplashScreen,
+    RoomsView,
 } from './layouts'
 import { firebaseConfig } from './config'
 
@@ -52,6 +53,8 @@ export default class Navigation extends Component {
                 return (<LoginView navigator={navigator} user={navigator.props.user} />)
             case 'DASHBOARD':
                 return (<DashboardView navigator={navigator} user={navigator.props.user} />)
+            case 'ROOMS':
+                return (<RoomsView navigator={navigator} user={navigator.props.user} />)
         }
     }
 

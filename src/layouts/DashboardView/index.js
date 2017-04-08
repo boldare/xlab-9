@@ -12,7 +12,6 @@ import { styles } from './../styles'
 import * as firebase from 'firebase'
 import backgroundImage from './../../images/background.jpg'
 
-
 export class DashboardView extends Component {
     constructor(props) {
         super(props)
@@ -24,14 +23,15 @@ export class DashboardView extends Component {
     }
 
     handleSetUserData() {
+        this.setState({userName: ''});
+        const navigator = this.props.navigator;
+
         this.props.user.updateProfile({
             displayName: this.state.userName,
             photoURL: 'https://conferencecloud-assets.s3.amazonaws.com/default_avatar.png'
-        }).then(function() {
-            console.log('done');
-        }, function(error) {
-            console.log(error);
-        });
+        }).then(() => {
+            navigator.push({name: 'ROOMS'})
+        }).catch( error => console.log(error))
     }
     
     handleLogOut() {
@@ -49,7 +49,6 @@ export class DashboardView extends Component {
     }
 
     render() {
-        console.log(this.props.user)
         return (
             <ScrollView 
                 contentContainerStyle={styles.container}
@@ -58,6 +57,7 @@ export class DashboardView extends Component {
                 <Animated.Image source={backgroundImage} style={[styles.backgroundImage, { opacity: this.state.fadeAnim}]}>
                     <View style={styles.row}>
                         <View style={styles.section}>
+                            
                             <Text style={styles.title}>
                                 Wprowadź swoje dane
                             </Text>
@@ -66,13 +66,6 @@ export class DashboardView extends Component {
                             </Text>
                             <Text style={styles.paragraph}>
                                 Username: {this.props.user.displayName}
-                            </Text>
-                            <Text style={styles.paragraph}>
-                                Avatar: 
-                                 <Image
-                                    style={styles.avatar}
-                                    source={{'uri': this.props.user.photoURL}}
-                                />
                             </Text>
                             <Text style={styles.paragraph}>
                                 odswiez zeby zobaczyc zmiane (TODO: przejscie do listy pokojów, pobranie foty z gravatara)
