@@ -53,7 +53,7 @@ export class DashboardView extends Component {
                 duration: 1000,
             },
         ).start()
-    }e
+    }
 
     render() {
         return (
