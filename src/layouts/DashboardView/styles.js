@@ -21,5 +21,7 @@ export const styles = StyleSheet.create({
     },
     userName: {
         marginTop: 20,
+        color: 'white',
+        opacity: 1,
     }
 })

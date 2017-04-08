@@ -42,7 +42,7 @@ export class DashboardView extends Component {
     
     handleLogOut() {
         firebase.auth().signOut()
-        this.props.navigator.pop().push({
+        this.props.navigator.replace({
             name: 'LOGIN'
         })
     }
@@ -74,13 +74,16 @@ export class DashboardView extends Component {
                             </View>
                             <View style={styles.avatarRow}>
                                 <Text style={styles.title}>
-                                    Witaj! {this.state.user.email}
+                                     Witaj!
+                                </Text>
+                                <Text style={styles.title}>
+                                    {this.state.user.email}
                                 </Text>
                                 <Text style={styles.paragraph}>
                                     Wprowadź swoją ksywę, która będzie widoczna na chacie
                                 </Text>
                                 <Text style={[styles.paragraph, styles.userName]}>
-                                    Username: {this.state.displayName}
+                                   {this.state.displayName}
                                 </Text>
                             </View>
                         </View>

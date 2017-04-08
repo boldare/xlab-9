@@ -64,5 +64,6 @@ export const layoutStyles = StyleSheet.create({
       width: 80,
       height: 80,
       borderRadius: 40,
+      backgroundColor: 'black',
   }
 })
