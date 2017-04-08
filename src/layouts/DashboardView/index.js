@@ -31,10 +31,16 @@ export class DashboardView extends Component {
     }
 
     handleSetUserData() {
+        this.setState({userName: ''});
+        const navigator = this.props.navigator;
+
         this.props.user.updateProfile({
             displayName: this.state.displayName,
         }).then(function() {
-            console.log('done');
+            navigator.push({
+                name: 'ROOMS',
+                user: this.state.user
+            })
         }, function(error) {
             console.log(error);
         });
