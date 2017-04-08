@@ -2,7 +2,7 @@ import {
   StyleSheet
 } from 'react-native';
 
-export const styles = StyleSheet.create({
+export const layoutStyles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -25,11 +25,13 @@ export const styles = StyleSheet.create({
     fontSize: 24,
     textAlign: 'center',
     backgroundColor: 'rgba(0,0,0,0)',
+    color: 'white',
   },
   paragraph: {
     marginBottom: 5,
     textAlign: 'center',
-    color: '#333333',
+    color: '#ffffff',
+    opacity: .7,
     backgroundColor: 'rgba(0,0,0,0)',
   },
   error: {
@@ -53,13 +55,14 @@ export const styles = StyleSheet.create({
   },
   backgroundImage: {
     flex: 1,
-    resizeMode: 'cover',
+    height: 100,
+    width: '200%',
     justifyContent: 'center',
     alignItems: 'center',
   },
   avatar: {
-      width: 40,
-      height: 40,
-      borderRadius: 20,
+      width: 80,
+      height: 80,
+      borderRadius: 40,
   }
-});
+})

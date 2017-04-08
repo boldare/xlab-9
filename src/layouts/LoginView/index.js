@@ -11,8 +11,9 @@ import {
 } from 'react-native'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 import * as firebase from 'firebase'
-import { styles } from './../styles'
-import backgroundImage from './../../images/background.jpg'
+
+import { layoutStyles } from './../styles'
+import { backgroundImage } from '../../images'
 import { Button } from './../../components/Button'
 
 export class LoginView extends Component {
@@ -63,47 +64,48 @@ export class LoginView extends Component {
     render() {
         return (
             <ScrollView 
-                contentContainerStyle={styles.container}
+                contentContainerStyle={layoutStyles.container}
                 scrollEnabled={false}
             >
-                <Animated.Image source={backgroundImage} style={[styles.backgroundImage, { opacity: this.state.fadeAnim}]}>
-                    <View style={styles.row}>
-                        <View style={styles.section}>
-                            <Text style={styles.title}>
+                <Animated.Image source={backgroundImage} style={[layoutStyles.backgroundImage, { opacity: this.state.fadeAnim}]}>
+                    <View style={layoutStyles.row}>
+                        <View style={layoutStyles.section}>
+                            <Text style={layoutStyles.title}>
                                 Witamy w aplikacji
                             </Text>
-                            <Text style={styles.paragraph}>
+                            <Text style={layoutStyles.paragraph}>
                                 Aby dołączy do chatu {'\n'}
                                 nalezy się zarejestrowac i zalogowac {'\n'}
                             </Text>
                             { this.state.error &&
-                                <Text style={styles.error}>
+                                <Text style={layoutStyles.error}>
                                     { this.state.error }
                                 </Text>
                             }
                         </View>
                         <TextInput
-                            style={styles.input}
+                            style={layoutStyles.input}
                             underlineColorAndroid="rgba(0,0,0,0)"
                             onChangeText={(email) => this.setState({email})}
                             value={this.state.email}
                             placeholder="E-mail"
+                            autoCapitalize='none'
                         />
                         <TextInput
-                            style={styles.input}
+                            style={layoutStyles.input}
                             underlineColorAndroid="rgba(0,0,0,0)"
                             onChangeText={(password) => this.setState({password})}
                             value={this.state.password}
                             placeholder="Hasło"
                             secureTextEntry
                         />
-                        <View style={[styles.buttonContainer, { marginTop: 10 }]}>
+                        <View style={[layoutStyles.buttonContainer, { marginTop: 10 }]}>
                             <Button
                                 onPress={() => { this.handleSignIn() }}
                                 title="Zaloguj się"
                             />
                         </View>
-                        <View style={styles.buttonContainer}>
+                        <View style={layoutStyles.buttonContainer}>
                             <Button
                                 onPress={() => { this.handleSignUp() }}
                                 title="Zarejestruj się"
