@@ -39,6 +39,19 @@ export default class Navigation extends Component {
 
     }
 
+    navigatorConfigScene(route, routeStack) {
+        switch (route.name) {
+            case 'LOGIN':
+                if (routeStack[0].name === 'LOGIN') {
+                    return Navigator.SceneConfigs.FloatFromLeft
+                } else {
+                    return Navigator.SceneConfigs.PushFromRight
+                }
+            default:
+                return Navigator.SceneConfigs.PushFromRight
+        }
+    }
+
     navigatorRenderScene(route, navigator) {        
         switch (route.name) {
             case 'SPLASH':
@@ -56,6 +69,7 @@ export default class Navigation extends Component {
                 ref={(navigator) => { this.navigator = navigator }}
                 initialRoute={{ name: 'SPLASH' }}
                 renderScene={this.navigatorRenderScene}
+                configureScene={this.navigatorConfigScene}
                 {...this.state}
             /> 
         )

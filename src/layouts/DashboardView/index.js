@@ -42,9 +42,7 @@ export class DashboardView extends Component {
     
     handleLogOut() {
         firebase.auth().signOut()
-        this.props.navigator.replace({
-            name: 'LOGIN'
-        })
+        this.props.navigator.immediatelyResetRouteStack([{ name: 'LOGIN' }])
     }
 
     componentDidMount() {
@@ -55,7 +53,7 @@ export class DashboardView extends Component {
                 duration: 1000,
             },
         ).start()
-    }
+    }e
 
     render() {
         return (
