@@ -57,9 +57,4 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  avatar: {
-      width: 40,
-      height: 40,
-      borderRadius: 20,
-  }
 });
