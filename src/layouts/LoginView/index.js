@@ -86,6 +86,7 @@ export class LoginView extends Component {
                         <TextInput
                             style={layoutStyles.input}
                             underlineColorAndroid="rgba(0,0,0,0)"
+                            placeholderTextColor="rgba(0,0,0,0.7)"
                             onChangeText={(email) => this.setState({email})}
                             value={this.state.email}
                             placeholder="E-mail"
@@ -94,6 +95,7 @@ export class LoginView extends Component {
                         <TextInput
                             style={layoutStyles.input}
                             underlineColorAndroid="rgba(0,0,0,0)"
+                            placeholderTextColor="rgba(0,0,0,0.7)"
                             onChangeText={(password) => this.setState({password})}
                             value={this.state.password}
                             placeholder="Hasło"

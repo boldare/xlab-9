@@ -27,6 +27,7 @@ export class RoomForm extends Component {
         this.roomRef.push({
             name: this.state.roomName,
             author: this.props.user.displayName,
+            authorId: this.props.user.uid,
             creationDate: Date.now(),
         }).then(data => {
             this.showAlert()
