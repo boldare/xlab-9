@@ -9,7 +9,7 @@ import {
     SplashScreen,
     LoginView,
     DashboardView,
-    RoomsView,
+    RoomView,
 } from './layouts'
 import { firebaseConfig } from './config'
 
@@ -61,8 +61,8 @@ export default class Navigation extends Component {
                 return (<LoginView navigator={navigator} />)
             case 'DASHBOARD':
                 return (<DashboardView navigator={navigator} user={route.user} />)
-            case 'ROOMS':
-                return (<RoomsView navigator={navigator} user={route.user} />)
+            case 'ROOM':
+                return (<RoomView navigator={navigator} user={route.user} />)
         }
     }
 

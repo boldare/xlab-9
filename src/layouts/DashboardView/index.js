@@ -36,9 +36,10 @@ export class DashboardView extends Component {
 
         this.props.user.updateProfile({
             displayName: this.state.displayName,
+            photoURL: this.state.photoURL,
         }).then(() => {
             navigator.push({
-                name: 'ROOMS',
+                name: 'ROOM',
                 user: this.state.user
             })
         }, (err) => {

@@ -1,4 +1,4 @@
 export { SplashScreen } from './SplashScreen'
 export { LoginView } from './LoginView'
 export { DashboardView } from './DashboardView'
-export { RoomsView } from './RoomsView'
+export { RoomView } from './RoomView'
