@@ -21,48 +21,58 @@ export default class Navigation extends Component {
         
         this.state = {
             user: null,
-            isLoaded: false,
         }
     }
     
     componentDidMount() {
         firebase.auth().onAuthStateChanged(userData => {
-            this.setState({ user: userData });
-        });
+            if (userData) {
+                this.navigator.push({
+                    name: 'DASHBOARD',
+                    user: userData,
+                })
+            } else {
+                this.navigator.push({
+                    name: 'LOGIN',
+                })
+            }
+        })
 
-        this.setSplashScreen();
     }
 
-    setSplashScreen() {
-        setTimeout(() => {
-            this.setState({ isLoaded: true });
-        }, 1500);
-    }
-
-    navigatorRenderScene(route, navigator) {
-        if(!navigator.props.isLoaded) {
-            return (<SplashScreen navigator={navigator} />)
-        }
-
-        if (!navigator.props.user) {
-            return (<LoginView navigator={navigator} />)
-        }
-        
+    navigatorConfigScene(route, routeStack) {
         switch (route.name) {
             case 'LOGIN':
-                return (<LoginView navigator={navigator} user={navigator.props.user} />)
+                if (routeStack[0].name === 'LOGIN') {
+                    return Navigator.SceneConfigs.FloatFromLeft
+                } else {
+                    return Navigator.SceneConfigs.PushFromRight
+                }
+            default:
+                return Navigator.SceneConfigs.PushFromRight
+        }
+    }
+
+    navigatorRenderScene(route, navigator) {        
+        switch (route.name) {
+            case 'SPLASH':
+                return (<SplashScreen navigator={navigator} />)
+            case 'LOGIN':
+                return (<LoginView navigator={navigator} />)
             case 'DASHBOARD':
-                return (<DashboardView navigator={navigator} user={navigator.props.user} />)
+                return (<DashboardView navigator={navigator} user={route.user} />)
             case 'ROOMS':
-                return (<RoomsView navigator={navigator} user={navigator.props.user} />)
+                return (<RoomsView navigator={navigator} user={route.user} />)
         }
     }
 
     render() {
         return (
             <Navigator
-                initialRoute={{ name: 'DASHBOARD' }}
+                ref={(navigator) => { this.navigator = navigator }}
+                initialRoute={{ name: 'SPLASH' }}
                 renderScene={this.navigatorRenderScene}
+                configureScene={this.navigatorConfigScene}
                 {...this.state}
             /> 
         )

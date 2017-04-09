@@ -9,10 +9,14 @@ import {
     Alert,
     ListView,
 } from 'react-native'
-import { Button } from './../../components/Button'
-import { styles } from './../styles'
 import * as firebase from 'firebase'
-import backgroundImage from './../../images/background.jpg'
+
+import { layoutStyles } from './../styles'
+import { styles } from './styles'
+import { backgroundImage } from '../../images/'
+import { Button } from './../../components/Button'
+
+Object.assign(styles, layoutStyles)
 
 export class RoomsView extends Component {
     constructor(props) {

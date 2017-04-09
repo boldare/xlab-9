@@ -6,20 +6,28 @@ import {
     Image,
     Animated,
     TextInput,
+    Platform,
 } from 'react-native'
-import { Button } from './../../components/Button'
-import { styles } from './../styles'
 import * as firebase from 'firebase'
-import backgroundImage from './../../images/background.jpg'
+import KeyboardSpacer from 'react-native-keyboard-spacer'
+
+import { Button } from './../../components/Button'
+import { layoutStyles } from './../styles'
+import { styles } from './styles'
+import { backgroundImage } from '../../images'
+
+Object.assign(styles, layoutStyles)
 
 export class DashboardView extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            userName: '',
+            user: this.props.user,
+            photoURL: 'https://api.adorable.io/avatars/160/' + this.props.user.email,
+            displayName: this.props.user.displayName ? this.props.user.displayName : '',
             fadeAnim: new Animated.Value(0),
-        };
+        }
     }
 
     handleSetUserData() {
@@ -27,15 +35,20 @@ export class DashboardView extends Component {
         const navigator = this.props.navigator;
 
         this.props.user.updateProfile({
-            displayName: this.state.userName,
-            photoURL: 'https://conferencecloud-assets.s3.amazonaws.com/default_avatar.png'
+            displayName: this.state.displayName,
         }).then(() => {
-            navigator.push({name: 'ROOMS'})
-        }).catch( error => console.log(error))
+            navigator.push({
+                name: 'ROOMS',
+                user: this.state.user
+            })
+        }, (err) => {
+            console.log(err)
+        })
     }
     
     handleLogOut() {
         firebase.auth().signOut()
+        this.props.navigator.immediatelyResetRouteStack([{ name: 'LOGIN' }])
     }
 
     componentDidMount() {
@@ -54,28 +67,35 @@ export class DashboardView extends Component {
                 contentContainerStyle={styles.container}
                 scrollEnabled={false}
             >
-                <Animated.Image source={backgroundImage} style={[styles.backgroundImage, { opacity: this.state.fadeAnim}]}>
+                <Animated.Image source={backgroundImage} style={[layoutStyles.backgroundImage, { opacity: this.state.fadeAnim}]}>
                     <View style={styles.row}>
-                        <View style={styles.section}>
-                            
-                            <Text style={styles.title}>
-                                Wprowadź swoje dane
-                            </Text>
-                            <Text style={styles.paragraph}>
-                                Witam {this.props.user.email}! Wprowadź swoją ksywę, która będzie widoczna na chacie
-                            </Text>
-                            <Text style={styles.paragraph}>
-                                Username: {this.props.user.displayName}
-                            </Text>
-                            <Text style={styles.paragraph}>
-                                odswiez zeby zobaczyc zmiane (TODO: przejscie do listy pokojów, pobranie foty z gravatara)
-                            </Text>
+                        <View style={styles.dashboardSection}>
+                            <View style={styles.avatarRow}>
+                                <Image
+                                    style={styles.avatar}
+                                    source={{'uri': this.state.photoURL}}
+                                />
+                            </View>
+                            <View style={styles.avatarRow}>
+                                <Text style={styles.title}>
+                                     Witaj!
+                                </Text>
+                                <Text style={styles.title}>
+                                    {this.state.user.email}
+                                </Text>
+                                <Text style={styles.paragraph}>
+                                    Wprowadź swoją ksywę, która będzie widoczna na chacie
+                                </Text>
+                                <Text style={[styles.paragraph, styles.userName]}>
+                                   {this.state.displayName}
+                                </Text>
+                            </View>
                         </View>
                         <TextInput
                             style={styles.input}
                             underlineColorAndroid="rgba(0,0,0,0)"
-                            onChangeText={(userName) => this.setState({userName})}
-                            value={this.state.userName}
+                            onChangeText={(displayName) => this.setState({displayName})}
+                            value={this.state.displayName}
                             placeholder="Username"
                         />
                         <View style={styles.buttonContainer}>
@@ -83,7 +103,7 @@ export class DashboardView extends Component {
                                 style={styles.button}
                                 onPress={() => { this.handleSetUserData() }}
                                 title="Dalej"
-                                disabled={this.state.userName == ''}
+                                disabled={this.state.displayName === ''}
                             />
                         </View>
                         <View style={styles.buttonContainer}>
@@ -95,6 +115,10 @@ export class DashboardView extends Component {
                         </View>
                     </View>
                 </Animated.Image>
+                {
+                    Platform.OS === 'ios' &&
+                    <KeyboardSpacer />
+                }
             </ScrollView>
         )
     }

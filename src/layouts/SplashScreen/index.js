@@ -6,10 +6,12 @@ import {
     Image,
     Animated,
 } from 'react-native'
-import { styles } from './../styles'
 
-import backgroundImage from './background.jpeg'
-import logoImage from './logo.png'
+import { layoutStyles } from './../styles'
+import {
+    backgroundImage,
+    logoImage
+} from '../../images'
 
 export class SplashScreen extends Component {
     constructor(props) {
@@ -33,10 +35,10 @@ export class SplashScreen extends Component {
     render() {
         return (
             <ScrollView 
-                contentContainerStyle={styles.container}
+                contentContainerStyle={layoutStyles.container}
                 scrollEnabled={false}
             >
-                <Animated.Image source={backgroundImage} style={[styles.backgroundImage, { opacity: this.state.fadeAnim}]}>
+                <Animated.Image source={backgroundImage} resizeMode='cover' style={[layoutStyles.backgroundImage, { opacity: this.state.fadeAnim}]}>
                     <Image
                         style={{width: 200, height: 100, marginBottom: 250}}
                         source={logoImage}
