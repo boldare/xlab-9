@@ -5,4 +5,4 @@ export const firebaseConfig = {
   projectId: "xlab-react",
   storageBucket: "xlab-react.appspot.com",
   messagingSenderId: "113610200437"
-};
+}

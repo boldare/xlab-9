@@ -1,6 +1,4 @@
-import {
-  StyleSheet
-} from 'react-native';
+import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   buttonText: {
@@ -17,4 +15,4 @@ export const styles = StyleSheet.create({
   buttonDisable: {
     opacity: 0.4,
   }
-});
+})

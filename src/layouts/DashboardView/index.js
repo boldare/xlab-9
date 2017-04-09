@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import KeyboardSpacer from 'react-native-keyboard-spacer'
+import * as firebase from 'firebase'
 import {
     ScrollView,
     View,
@@ -8,8 +10,6 @@ import {
     TextInput,
     Platform,
 } from 'react-native'
-import * as firebase from 'firebase'
-import KeyboardSpacer from 'react-native-keyboard-spacer'
 
 import { Button } from './../../components/Button'
 import { layoutStyles } from './../styles'
@@ -36,9 +36,10 @@ export class DashboardView extends Component {
 
         this.props.user.updateProfile({
             displayName: this.state.displayName,
+            photoURL: this.state.photoURL,
         }).then(() => {
             navigator.push({
-                name: 'ROOMS',
+                name: 'ROOM',
                 user: this.state.user
             })
         }, (err) => {
