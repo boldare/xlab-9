@@ -36,14 +36,14 @@ export class DashboardView extends Component {
 
         this.props.user.updateProfile({
             displayName: this.state.displayName,
-        }).then(function() {
+        }).then(() => {
             navigator.push({
                 name: 'ROOMS',
                 user: this.state.user
             })
-        }, function(error) {
-            console.log(error);
-        });
+        }, (err) => {
+            console.log(err)
+        })
     }
     
     handleLogOut() {
