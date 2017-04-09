@@ -23,13 +23,13 @@ export class RoomForm extends Component {
     }
     
     handleAddRoom() {
-        this.setState({roomName: ''})
         this.roomRef.push({
             name: this.state.roomName,
             author: this.props.user.displayName,
             authorId: this.props.user.uid,
             creationDate: Date.now(),
         }).then(data => {
+            this.setState({roomName: ''})
             this.showAlert()
         });
     }
