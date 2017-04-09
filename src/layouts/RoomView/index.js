@@ -1,31 +1,22 @@
 import React, { Component } from 'react'
-import {
-    ScrollView,
-    View,
-    Text,
-    Image,
-    Animated,
-    TextInput,
-    Alert,
-    ListView,
-    TouchableOpacity,
-} from 'react-native'
-import * as firebase from 'firebase'
 import ImageHeader from 'react-native-image-header'
+import * as firebase from 'firebase'
+import {
+    View,
+    Animated,
+} from 'react-native'
 
-import { layoutStyles } from './../styles'
 import { styles } from './styles'
 import { backgroundImage } from '../../images/'
-import { Button } from './../../components/Button'
-
-Object.assign(styles, layoutStyles)
+import { Header } from './../../components/Header'
+import { RoomForm } from './../../components/RoomForm'
+import { RoomList } from './../../components/RoomList'
 
 export class RoomView extends Component {
     constructor(props) {
         super(props)
         this.state = {
             rooms: null,
-            roomName: '',
             isLoaded: false,
             fadeAnim: new Animated.Value(0),
         };
@@ -61,26 +52,6 @@ export class RoomView extends Component {
             })
         });
     }
-    
-    handleAddRoom() {
-        this.setState({roomName: ''})
-        this.roomRef.push({
-            name: this.state.roomName,
-            author: this.props.user.displayName,
-            creationDate: Date.now(),
-        }).then(data => {
-            this.showAlert()
-        });
-    }
-
-    showAlert() {
-        Alert.alert(
-            'Brawo ty!',
-            'Pokoj zostal dodany',
-            [{text: 'OK'}],
-            { cancelable: false }
-        )
-    }
 
     render() {
         return (
@@ -92,71 +63,16 @@ export class RoomView extends Component {
                 titleScale={1}
                 headerChildren={
                     <View style={styles.foregroundContainer}>
-                        <View style={styles.navigation}>
-                            <Image
-                                source={{'uri': this.props.user.photoURL}}
-                                style={styles.userImage}
-                                resizeMode="contain"
-                            />
-                            <View style={styles.logoutButton}>
-                                <TouchableOpacity>
-                                    <Text style={styles.headerText}>
-                                        Logout
-                                    </Text>
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-                        <View style={styles.additionOptions}>
-                            <TextInput
-                                style={styles.input}
-                                underlineColorAndroid="rgba(0,0,0,0)"
-                                placeholderTextColor="rgba(0,0,0,0.7)"
-                                onChangeText={(roomName) => this.setState({roomName})}
-                                value={this.state.roomName}
-                                placeholder="Nazwa nowego pokoju"
-                            />
-                            <View style={styles.buttonContainer}>
-                                <Button
-                                    style={styles.button}
-                                    onPress={() => { this.handleAddRoom() }}
-                                    title="Dodaj nowy pokój"
-                                />
-                            </View>
-                        </View>
+                        <Header {...this.props} />
+                        <RoomForm {...this.props} />
                     </View>
                 }
                 >
-                { this.state.isLoaded ? (
-                    this.state.rooms.length ? (
-                        <View style={styles.listContent}>
-                            { this.state.rooms.map((room, index) => (
-                                <View 
-                                    key={index}
-                                    style={styles.listItem}
-                                >
-                                    <Text style={styles.textItem}>
-                                        {room.name}
-                                    </Text>
-                                    <Text style={styles.smallText}>
-                                        Właściciel: {room.author}
-                                    </Text>
-                                </View>
-                            ))}
-                        </View>
-                    ):(
-                        <View style={styles.blankContent}>
-                            <Text style={styles.textItem}>
-                                Lista jest pusta
-                            </Text>
-                        </View>
-                    )
-                ):(
-                    <View style={styles.blankContent}>
-                        <Text style={styles.textItem}>
-                            Pobieram pokoje...
-                        </Text>
-                    </View>
-                )}
+                <RoomList 
+                    rooms={this.state.rooms}
+                    isLoaded={this.state.isLoaded}
+                    {...this.props}
+                />
             </ImageHeader>
         )
     }

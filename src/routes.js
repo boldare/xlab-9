@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import TimerMixin from 'react-timer-mixin';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase'
 import { 
     Navigator, 
     View,
