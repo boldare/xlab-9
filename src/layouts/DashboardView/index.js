@@ -95,13 +95,13 @@ export class DashboardView extends Component {
                         <TextInput
                             style={styles.input}
                             underlineColorAndroid="rgba(0,0,0,0)"
+                            placeholderTextColor="rgba(0,0,0,0.7)"
                             onChangeText={(displayName) => this.setState({displayName})}
                             value={this.state.displayName}
                             placeholder="Username"
                         />
                         <View style={styles.buttonContainer}>
                             <Button
-                                style={styles.button}
                                 onPress={() => { this.handleSetUserData() }}
                                 title="Dalej"
                                 disabled={this.state.displayName === ''}
@@ -109,7 +109,6 @@ export class DashboardView extends Component {
                         </View>
                         <View style={styles.buttonContainer}>
                             <Button
-                                style={styles.button}
                                 onPress={() => { this.handleLogOut() }}
                                 title="Wyloguj"
                             />

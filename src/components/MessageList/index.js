@@ -7,53 +7,43 @@ import {
 
 import { styles } from './styles'
 
-export class RoomList extends Component {
+export class MessageList extends Component {
     constructor(props) {
         super(props)
-    }
-
-    handleShowChat(room) {
-        this.props.navigator.push({
-            name: 'CHAT',
-            passProps: {
-                room: room,
-                user: this.props.user,
-            }
-        })
     }
 
     render() {
         return (
             <View>
                 { this.props.isLoaded ? (
-                    this.props.rooms.length ? (
+                    this.props.messages && this.props.messages.length ? (
                         <View style={styles.listContent}>
-                            { this.props.rooms.map((room, index) => (
-                                <TouchableOpacity 
+                            { this.props.messages.map((item, index) => (
+                                <View 
                                     key={index}
                                     style={styles.listItem}
                                     onPress={() => { this.handleShowChat(room) }}
                                 >
                                     <Text style={styles.textItem}>
-                                        {room.name}
+                                        {item.message}
                                     </Text>
                                     <Text style={styles.smallText}>
-                                        Właściciel: {room.author}
+                                        Napisał: {item.userName}
                                     </Text>
-                                </TouchableOpacity>
+                                </View>
                             ))}
                         </View>
                     ):(
                         <View style={styles.blankContent}>
                             <Text style={styles.textItem}>
-                                Lista jest pusta
+                                Brak wiadomosci
                             </Text>
                         </View>
                     )
                 ):(
                     <View style={styles.blankContent}>
                         <Text style={styles.textItem}>
-                            Pobieram pokoje...
+                            Pobieram wiadomosci...
                         </Text>
                     </View>
                 )}

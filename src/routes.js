@@ -9,6 +9,7 @@ import {
     LoginView,
     DashboardView,
     RoomView,
+    ChatView,
 } from './layouts'
 import { firebaseConfig } from './config'
 
@@ -62,6 +63,8 @@ export default class Navigation extends Component {
                 return (<DashboardView navigator={navigator} user={route.user} />)
             case 'ROOM':
                 return (<RoomView navigator={navigator} user={route.user} />)
+            case 'CHAT':
+                return (<ChatView navigator={navigator} {...route.passProps} />)
         }
     }
 
