@@ -32,22 +32,20 @@ export default class Navigation extends Component {
                     user: userData,
                 })
             } else {
-                this.navigator.push({
-                    name: 'LOGIN',
-                })
+                if (this.navigator.getCurrentRoutes()[0].name === 'SPLASH') {
+                    this.navigator.push({
+                        name: 'LOGIN',
+                    })
+                }
             }
         })
-
     }
 
     navigatorConfigScene(route, routeStack) {
-        switch (route.name) {
-            case 'LOGIN':
-                if (routeStack[0].name === 'LOGIN') {
-                    return Navigator.SceneConfigs.FloatFromLeft
-                } else {
-                    return Navigator.SceneConfigs.PushFromRight
-                }
+        switch (route.direction) {
+            case 'LEFT':
+                console.log(route)
+                return Navigator.SceneConfigs.FloatFromLeft
             default:
                 return Navigator.SceneConfigs.PushFromRight
         }

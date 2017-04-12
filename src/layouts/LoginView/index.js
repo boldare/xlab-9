@@ -28,16 +28,6 @@ export class LoginView extends Component {
         }
     }
 
-    componentDidMount() {
-        Animated.timing(
-            this.state.fadeAnim,
-            {
-                toValue: 1,
-                duration: 1000,
-            },
-        ).start()
-    }
-
     handleSignIn() {
         this.setState({ error: false })
 
@@ -67,7 +57,7 @@ export class LoginView extends Component {
                 contentContainerStyle={layoutStyles.container}
                 scrollEnabled={false}
             >
-                <Animated.Image source={backgroundImage} style={[layoutStyles.backgroundImage, { opacity: this.state.fadeAnim}]}>
+                <Animated.Image source={backgroundImage} style={layoutStyles.backgroundImage}>
                     <View style={layoutStyles.row}>
                         <View style={layoutStyles.section}>
                             <Text style={layoutStyles.title}>

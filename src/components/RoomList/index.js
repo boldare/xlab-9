@@ -3,6 +3,7 @@ import {
     View,
     Text,
     TouchableOpacity,
+    ListView,
 } from 'react-native'
 
 import { styles } from './styles'
@@ -22,41 +23,28 @@ export class RoomList extends Component {
         })
     }
 
+    getDataSource() {
+        const dataSource = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1.uuid !== r2.uuid })
+
+        return this.props.rooms ? dataSource.cloneWithRows(this.props.rooms) : dataSource
+    }
+
+    renderRow(rowData, sectionID, rowID) {
+        return (
+        <View>
+            <Text>{rowData.name}</Text>
+        </View>
+        )
+    }
+
     render() {
         return (
-            <View>
-                { this.props.isLoaded ? (
-                    this.props.rooms.length ? (
-                        <View style={styles.listContent}>
-                            { this.props.rooms.map((room, index) => (
-                                <TouchableOpacity 
-                                    key={index}
-                                    style={styles.listItem}
-                                    onPress={() => { this.handleShowChat(room) }}
-                                >
-                                    <Text style={styles.textItem}>
-                                        {room.name}
-                                    </Text>
-                                    <Text style={styles.smallText}>
-                                        Właściciel: {room.author}
-                                    </Text>
-                                </TouchableOpacity>
-                            ))}
-                        </View>
-                    ):(
-                        <View style={styles.blankContent}>
-                            <Text style={styles.textItem}>
-                                Lista jest pusta
-                            </Text>
-                        </View>
-                    )
-                ):(
-                    <View style={styles.blankContent}>
-                        <Text style={styles.textItem}>
-                            Pobieram pokoje...
-                        </Text>
-                    </View>
-                )}
+            <View style={styles.roomList}>
+                <ListView
+                    contentContainerStyle={styles.listView}
+                    dataSource={this.getDataSource()}
+                    renderRow={this.renderRow}
+                />
             </View>
         )
     }
