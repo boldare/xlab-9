@@ -4,6 +4,7 @@ import {
     Text,
     TouchableOpacity,
     ListView,
+    ActivityIndicator,
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -39,7 +40,7 @@ export class RoomList extends Component {
                         <Text style={styles.listItemLabel}>{rowData.name}</Text>
                         <Text style={styles.listItemAuthor}>{rowData.author}</Text>
                     </View>
-                    <View style={[styles.listItemColumn, styles.listItemColumnIcons]}>
+                    <View style={styles.listItemColumnIcons}>
                         <Icon name="ios-arrow-forward-outline" size={28} color="#000" />
                     </View>
                 </View>
@@ -50,10 +51,18 @@ export class RoomList extends Component {
     render() {
         return (
             <View style={styles.roomList}>
+                {
+                    !this.props.isLoaded &&
+                    <ActivityIndicator
+                        style={styles.loader}
+                        size="large"
+                        color="black"
+                    />
+                }
                 <ListView
                     contentContainerStyle={styles.listView}
                     dataSource={this.getDataSource()}
-                    renderRow={this.renderRow}
+                    renderRow={this.renderRow.bind(this)}
                 />
             </View>
         )

@@ -10,7 +10,6 @@ export const styles = StyleSheet.create({
   },
   listView: {
     margin: 20,
-    marginTop: 50,
   },
   listItem: {
     flex: 1,
@@ -24,9 +23,11 @@ export const styles = StyleSheet.create({
   },
   listItemColumn: {
     flex: 1,
-    width: Dimensions.get('window').width/2,
+    width: Dimensions.get('window').width/4*3,
   },
   listItemColumnIcons: {
+    flex: 1,
+    width: Dimensions.get('window').width/4,
     alignItems: 'flex-end',
     justifyContent: 'center',
     marginRight: 15,
@@ -37,5 +38,10 @@ export const styles = StyleSheet.create({
   listItemAuthor: {
     fontSize: 12,
     opacity: .7,
+  },
+  loader: {
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
   }
 })
