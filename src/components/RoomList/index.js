@@ -6,6 +6,8 @@ import {
     ListView,
 } from 'react-native'
 
+import Icon from 'react-native-vector-icons/Ionicons'
+
 import { styles } from './styles'
 
 export class RoomList extends Component {
@@ -31,9 +33,17 @@ export class RoomList extends Component {
 
     renderRow(rowData, sectionID, rowID) {
         return (
-        <View>
-            <Text>{rowData.name}</Text>
-        </View>
+            <TouchableOpacity onPress={() => { this.handleShowChat(rowData) }}>
+                <View style={styles.listItem}>
+                    <View style={styles.listItemColumn}>
+                        <Text style={styles.listItemLabel}>{rowData.name}</Text>
+                        <Text style={styles.listItemAuthor}>{rowData.author}</Text>
+                    </View>
+                    <View style={[styles.listItemColumn, styles.listItemColumnIcons]}>
+                        <Icon name="ios-arrow-forward-outline" size={28} color="#000" />
+                    </View>
+                </View>
+            </TouchableOpacity>
         )
     }
 
