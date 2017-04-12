@@ -6,6 +6,7 @@ import {
     ScrollView,
     Easing,
     Platform,
+    Alert,
 } from 'react-native'
 import KeyboardSpacer from 'react-native-keyboard-spacer'
 
@@ -59,21 +60,41 @@ export class RoomView extends Component {
 
     listenRooms() {
         this.roomRef.on('value', rooms => {
-            var items = [];
+            const items = []
             rooms.forEach((child) => {
                 items.push({
                     name: child.val().name,
                     author: child.val().author,
                     creationDate: child.val().creationDate,
                     _key: child.key
-                });
-            });
+                })
+            })
 
             this.setState({ 
                 rooms: items.reverse(),
                 isLoaded: true,
             })
-        });
+        })
+    }
+
+    handleAddRoom(newRoom) {
+        this.roomRef.push({
+            name: newRoom,
+            author: this.props.user.displayName,
+            authorId: this.props.user.uid,
+            creationDate: Date.now(),
+        }).then(data => {
+            this.showAlert()
+        })
+    }
+
+    showAlert() {
+        Alert.alert(
+            'Brawo ty!',
+            'Pokoj zostal dodany',
+            [{text: 'OK'}],
+            { cancelable: false }
+        )
     }
 
     render() {
@@ -97,25 +118,31 @@ export class RoomView extends Component {
                         />
                         <Animated.View style={{ height: heightValue }}>
                             <FloatingInput
-                                onSubmit={() => {
-                                    //TODO: DODAĆ AKCJE DODAWANIA POKOJU
+                                onSubmit={(newRoom) => {
+                                    this.handleAddRoom(newRoom)
+                                    this.hideNewRoomInput()
+                                    this.setState({ isInputActive: false })
                                 }}
                             />
                         </Animated.View>
                     </View>
-                    <Animated.View style={{ bottom: heightValue }}>
-                        <FloatingButton
-                            onPress={() => {
-                                if (this.state.isInputActive) {
-                                    this.hideNewRoomInput()
-                                } else {
-                                    this.showNewRoomInput()
-                                }
-
-                                this.setState({ isInputActive: !this.state.isInputActive })
-                            }}
-                        />
-                    </Animated.View>
+                    {
+                        this.state.isLoaded &&
+                        <Animated.View style={{ bottom: heightValue }}>
+                            <FloatingButton
+                                isActive={this.state.isInputActive}
+                                onPress={() => {
+                                    if (this.state.isInputActive) {
+                                        this.hideNewRoomInput()
+                                        this.setState({ isInputActive: false })
+                                    } else {
+                                        this.showNewRoomInput()
+                                        this.setState({ isInputActive: true })
+                                    }
+                                }}
+                            />
+                        </Animated.View>
+                    }
                 </Animated.Image>
                 {
                     Platform.OS === 'ios' &&

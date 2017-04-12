@@ -24,7 +24,7 @@ export class FloatingInput extends Component {
 
     submitHandler() {
         if (this.props.onSubmit) {
-            this.props.onSubmit()
+            this.props.onSubmit(this.state.newRoom)
         }
     }
 

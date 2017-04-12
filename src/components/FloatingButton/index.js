@@ -15,26 +15,23 @@ export class FloatingButton extends Component {
     constructor(props) {
         super(props)
         this.spinValue = new Animated.Value(0)
-        this.state = {
-            isToggled: false,
-        }
+    }
+
+    componentDidUpdate(props) {
+        Animated.timing(
+            this.spinValue,
+            {
+                toValue: props.isActive ? 0 : 12.5,
+                duration: 200,
+                easing: Easing.quad
+            }
+        ).start()
     }
 
     toggleHandler() {
         if (this.props.onPress) {
             this.props.onPress()
         }
-
-        Animated.timing(
-            this.spinValue,
-            {
-                toValue: this.state.isToggled ? 0 : 12.5,
-                duration: 200,
-                easing: Easing.quad
-            }
-        ).start(() => {
-            this.setState({ isToggled: !this.state.isToggled })
-        })
     }
 
     render() {
