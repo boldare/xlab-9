@@ -6,6 +6,9 @@ import {
     Image,
     TouchableOpacity,
 } from 'react-native'
+
+import Icon from 'react-native-vector-icons/Ionicons'
+
 import { styles } from './styles'
 
 export class Header extends Component {
@@ -16,7 +19,8 @@ export class Header extends Component {
     handleShowProfile() {
         this.props.navigator.push({
             name: 'DASHBOARD',
-            user: this.props.user
+            user: this.props.user,
+            direction: 'LEFT',
         })
     }
 
@@ -28,18 +32,23 @@ export class Header extends Component {
     render() {
         return (
             <View style={styles.headerContainer}>
-                <TouchableOpacity onPress={() => { this.handleShowProfile() }}>
-                    <Image
-                        source={{'uri': this.props.user.photoURL}}
-                        style={styles.userImage}
-                        resizeMode="contain"
-                    />
-                </TouchableOpacity>
-                <View style={styles.logoutButton}>
-                    <TouchableOpacity onPress={() => { this.handleLogOut() }}>
-                        <Text style={styles.headerText}>
-                            Wyloguj
-                        </Text>
+                <View style={[styles.headerColumn, styles.headerColumnFirst]}>
+                    <TouchableOpacity onPress={() => { this.handleShowProfile() }}>
+                        <Icon name="ios-arrow-back" size={32} color="#fff" />
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.headerColumn}>
+                    <TouchableOpacity onPress={() => { this.handleShowProfile() }}>
+                        <Image
+                            source={{'uri': this.props.user.photoURL}}
+                            style={styles.userImage}
+                            resizeMode="contain"
+                        />
+                    </TouchableOpacity>
+                </View>
+                <View style={[styles.headerColumn, styles.headerColumnLast]}>
+                    <TouchableOpacity onPress={() => { this.handleShowProfile() }}>
+                        <Icon name="ios-walk-outline" size={32} color="#fff" />
                     </TouchableOpacity>
                 </View>
             </View>

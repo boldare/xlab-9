@@ -7,6 +7,12 @@ export const layoutStyles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
+  containerWithHeader: {
+    flex: 1,
+    flexDirection: 'column',
+    width: '100%',
+    height: '100%',
+  },
   row: {
     flex:1,
     width: 300,

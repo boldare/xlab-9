@@ -49,17 +49,7 @@ export class DashboardView extends Component {
     
     handleLogOut() {
         firebase.auth().signOut()
-        this.props.navigator.immediatelyResetRouteStack([{ name: 'LOGIN' }])
-    }
-
-    componentDidMount() {
-        Animated.timing(
-            this.state.fadeAnim,
-            {
-                toValue: 1,
-                duration: 1000,
-            },
-        ).start()
+        this.props.navigator.immediatelyResetRouteStack([{ name: 'LOGIN', direction: 'LEFT' }])
     }
 
     render() {
@@ -68,7 +58,7 @@ export class DashboardView extends Component {
                 contentContainerStyle={styles.container}
                 scrollEnabled={false}
             >
-                <Animated.Image source={backgroundImage} style={[layoutStyles.backgroundImage, { opacity: this.state.fadeAnim}]}>
+                <Animated.Image source={backgroundImage} style={layoutStyles.backgroundImage}>
                     <View style={styles.row}>
                         <View style={styles.dashboardSection}>
                             <View style={styles.avatarRow}>

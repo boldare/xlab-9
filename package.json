@@ -11,8 +11,8 @@
     "firebase": "^3.7.4",
     "react": "15.4.2",
     "react-native": "0.42.3",
-    "react-native-image-header": "^1.0.1",
-    "react-native-keyboard-spacer": "^0.3.1"
+    "react-native-keyboard-spacer": "^0.3.1",
+    "react-native-vector-icons": "^4.0.1"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",
