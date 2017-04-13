@@ -64,7 +64,7 @@ export class DashboardView extends Component {
                             <View style={styles.avatarRow}>
                                 <Image
                                     style={styles.avatar}
-                                    source={{'uri': this.state.photoURL}}
+                                    source={{'uri': this.state.photoURL, cache: 'only-if-cached'}}
                                 />
                             </View>
                             <View style={styles.avatarRow}>

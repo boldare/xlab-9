@@ -5,12 +5,16 @@ import {
     View,
     Text,
     TextInput,
+    Platform,
+    TouchableHighlight
 } from 'react-native'
+import KeyboardSpacer from 'react-native-keyboard-spacer'
+import Icon from 'react-native-vector-icons/Ionicons'
 
-import { layoutStyles } from './../styles'
 import { styles } from './styles'
 import { Button } from './../../components/Button'
 import { MessageList } from './../../components/MessageList'
+import { ChatHeader } from './../../components/ChatHeader'
 
 export class ChatView extends Component {
     constructor(props) {
@@ -19,6 +23,7 @@ export class ChatView extends Component {
             message: '',
             messages: null,
             isLoaded: false,
+            isKeyboardActive: false,
         }
         this.messagesRef = firebase.database().ref().child('rooms/' + this.props.room._key + '/messages')
     }
@@ -59,31 +64,49 @@ export class ChatView extends Component {
 
     render() {
         return (
-            <ScrollView contentContainerStyle={styles.chatContainer}>
-                <Text style={styles.title}>
-                    Chat {this.props.room.name}
-                </Text>
+            <ScrollView
+                scrollEnabled={false}
+                contentContainerStyle={styles.chatView}
+                keyboardShouldPersistTaps="handled"
+            >
+                <ChatHeader { ...this.props } />
 
-                <MessageList 
+                <MessageList
+                    ref={ ref => this.messageList = ref }
                     messages={this.state.messages}
                     isLoaded={this.state.isLoaded}
+                    isKeyboardActive={this.state.isKeyboardActive}
                     {...this.props}
                 />
                 <View style={styles.formContainer}>
                     <TextInput
-                        style={layoutStyles.input}
+                        style={styles.sendInput}
                         underlineColorAndroid="rgba(0,0,0,0)"
                         placeholderTextColor="rgba(0,0,0,0.7)"
-                        onChangeText={(message) => this.setState({message})}
+                        onChangeText={(message) => { this.setState({message}) }}
                         value={this.state.message}
-                        placeholder="Widomosc"
+                        placeholder="Text me..."
                         autoCapitalize='none'
                     />
-                    <Button
-                        onPress={() => { this.handleSendMessage() }}
-                        title="Wyślij widomosc"
-                    />
+                    {
+                        this.state.message.length > 0 &&
+                        <TouchableHighlight 
+                            onPress={() => { this.handleSendMessage() }}
+                        >
+                            <View style={styles.iconSend}>
+                                <Icon
+                                    name="ios-paper-plane"
+                                    color="#fff"
+                                    size={15}
+                                />
+                            </View>
+                        </TouchableHighlight>
+                    }
                 </View>
+                {
+                    Platform.OS === 'ios' &&
+                    <KeyboardSpacer onToggle={(toggleState)=> { this.setState({ isKeyboardActive: toggleState }) }}/>
+                }
             </ScrollView>
         )
     }

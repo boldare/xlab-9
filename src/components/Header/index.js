@@ -40,7 +40,7 @@ export class Header extends Component {
                 <View style={styles.headerColumn}>
                     <TouchableOpacity onPress={() => { this.handleShowProfile() }}>
                         <Image
-                            source={{'uri': this.props.user.photoURL}}
+                            source={{'uri': this.props.user.photoURL, cache: 'only-if-cached'}}
                             style={styles.userImage}
                             resizeMode="contain"
                         />

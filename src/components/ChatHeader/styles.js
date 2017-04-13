@@ -1,23 +1,16 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
 export const styles = StyleSheet.create({
-  userImage: {
-    width: 60,
-    height: 60,
-    margin: 10,
-    borderRadius: 30,
-    backgroundColor: '#A4C2EA',
-  },
   headerContainer: {
     flex: 1,
-    maxHeight: 100,
+    maxHeight: 60,
     width: Dimensions.get('window').width,
-    padding: 20,
-    paddingTop: 40,
-    paddingBottom: 0,
+    paddingLeft: 15,
+    paddingRight: 15,
     flexDirection: 'row',
-    justifyContent: 'space-between', 
+    justifyContent: 'space-between',
     alignItems: 'center',
+    backgroundColor: '#A4C2EA',
   },
   headerColumn: {
     flex: 1,
@@ -34,5 +27,20 @@ export const styles = StyleSheet.create({
   },
   headerText: {
     color: 'black',
+  },
+  goBack: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  label: {
+    color: '#fff',
+    marginLeft: 10,
+    marginTop: -1,
+  },
+  title: {
+    color: '#fff',
+    fontSize: 18,
   }
 })
