@@ -18,7 +18,7 @@ export class Header extends Component {
 
     handleShowProfile() {
         this.props.navigator.push({
-            name: 'DASHBOARD',
+            name: this.props.backView,
             user: this.props.user,
             direction: 'LEFT',
         })
@@ -54,4 +54,8 @@ export class Header extends Component {
             </View>
         )
     }
+}
+
+Header.defaultProps = {
+    backView: 'DASHBOARD'
 }
