@@ -18,7 +18,6 @@ export class ChatHeader extends Component {
 
     goBack() {
         this.props.navigator.jumpBack()
-        console.log(this.props)
     }
 
     handleLogOut() {
