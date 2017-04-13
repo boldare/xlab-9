@@ -15,11 +15,11 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingLeft: 30,
-    paddingBottom: 20,
-    marginTop: 20,
+    paddingLeft: 0,
+    paddingBottom: 10,
+    marginTop: 10,
     borderBottomWidth: 1,
-    borderBottomColor: 'black',
+    borderBottomColor: '#efefef',
   },
   listItemColumn: {
     flex: 1,
@@ -33,10 +33,11 @@ export const styles = StyleSheet.create({
     marginRight: 15,
   },
   listItemLabel: {
-    fontSize: 16,
+    fontSize: 15,
   },
   listItemAuthor: {
-    fontSize: 12,
+    marginTop: 3,
+    fontSize: 10,
     opacity: .7,
   },
   loader: {

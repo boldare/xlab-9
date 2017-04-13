@@ -117,6 +117,7 @@ export class RoomView extends Component {
                         />
                         <Animated.View style={{ height: heightValue }}>
                             <FloatingInput
+                                placeholder={'Nazwa pokoju'}
                                 onSubmit={(newRoom) => {
                                     this.handleAddRoom(newRoom)
                                     this.hideNewRoomInput()

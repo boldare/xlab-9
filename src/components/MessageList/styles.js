@@ -1,29 +1,48 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 
 export const styles = StyleSheet.create({
-  listContent: {
-    justifyContent: 'center', 
-    alignItems: 'center', 
+  roomList: {
+    flex: 1,
+    backgroundColor: 'white',
+    width: Dimensions.get('window').width - 40,
+    margin: 20,
+    borderRadius: 20,
   },
-  blankContent: {
-    justifyContent: 'center', 
-    alignItems: 'center', 
-    padding: 15,
-  },
-  textItem: {
-    fontSize: 16,
-    color: 'rgba(0, 0, 0, 1)'
-  },
-  smallText: {
-    marginTop: 3,
-    fontSize: 11,
-    color: 'rgba(0, 0, 0, 0.6)'
+  listView: {
+    margin: 20,
   },
   listItem: {
-    flexDirection: 'column',
-    width: '100%',
-    padding: 15,
-    borderBottomColor: 'rgb(210, 221, 216)',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingLeft: 0,
+    paddingBottom: 10,
+    marginTop: 10,
     borderBottomWidth: 1,
+    borderBottomColor: '#efefef',
+  },
+  listItemColumn: {
+    flex: 1,
+    width: Dimensions.get('window').width/4*3,
+  },
+  listItemColumnIcons: {
+    flex: 1,
+    width: Dimensions.get('window').width/4,
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+    marginRight: 15,
+  },
+  listItemLabel: {
+    fontSize: 15,
+  },
+  listItemAuthor: {
+    marginTop: 3,
+    fontSize: 10,
+    opacity: .7,
+  },
+  loader: {
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
   }
 })

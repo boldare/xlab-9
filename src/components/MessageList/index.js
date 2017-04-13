@@ -3,7 +3,11 @@ import {
     View,
     Text,
     TouchableOpacity,
+    ListView,
+    ActivityIndicator,
 } from 'react-native'
+
+import Icon from 'react-native-vector-icons/Ionicons'
 
 import { styles } from './styles'
 
@@ -12,41 +16,45 @@ export class MessageList extends Component {
         super(props)
     }
 
-    render() {
+    getDataSource() {
+        const dataSource = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1.uuid !== r2.uuid })
+
+        return this.props.messages ? dataSource.cloneWithRows(this.props.messages) : dataSource
+    }
+
+    renderRow(rowData, sectionID, rowID) {
         return (
-            <View>
-                { this.props.isLoaded ? (
-                    this.props.messages && this.props.messages.length ? (
-                        <View style={styles.listContent}>
-                            { this.props.messages.map((item, index) => (
-                                <View 
-                                    key={index}
-                                    style={styles.listItem}
-                                    onPress={() => { this.handleShowChat(room) }}
-                                >
-                                    <Text style={styles.textItem}>
-                                        {item.message}
-                                    </Text>
-                                    <Text style={styles.smallText}>
-                                        Napisał: {item.userName}
-                                    </Text>
-                                </View>
-                            ))}
-                        </View>
-                    ):(
-                        <View style={styles.blankContent}>
-                            <Text style={styles.textItem}>
-                                Brak wiadomosci
-                            </Text>
-                        </View>
-                    )
-                ):(
-                    <View style={styles.blankContent}>
-                        <Text style={styles.textItem}>
-                            Pobieram wiadomosci...
+            <TouchableOpacity onPress={() => {}}>
+                <View style={styles.listItem}>
+                    <View style={styles.listItemColumn}>
+                        <Text style={styles.listItemLabel}>
+                            {rowData.message}
+                        </Text>
+                        <Text style={styles.listItemAuthor}>
+                            {rowData.userName}
                         </Text>
                     </View>
-                )}
+                </View>
+            </TouchableOpacity>
+        )
+    }
+
+    render() {
+        return (
+            <View style={styles.roomList}>
+                {
+                    !this.props.isLoaded &&
+                    <ActivityIndicator
+                        style={styles.loader}
+                        size="large"
+                        color="black"
+                    />
+                }
+                <ListView
+                    contentContainerStyle={styles.listView}
+                    dataSource={this.getDataSource()}
+                    renderRow={this.renderRow.bind(this)}
+                />
             </View>
         )
     }

@@ -17,25 +17,25 @@ export class FloatingInput extends Component {
         super(props)
         this.btnAnimValue = new Animated.Value(0)
         this.state = {
-            newRoom: '',
+            newValue: '',
             showBtn: false,
         }
     }
 
     submitHandler() {
         if (this.props.onSubmit) {
-            this.props.onSubmit(this.state.newRoom)
+            this.props.onSubmit(this.state.newValue)
         }
     }
 
-    onChangeHandler(newRoom) {
-        if (newRoom.length > 0) {
+    onChangeHandler(newValue) {
+        if (newValue.length > 0) {
             this.setState({ showBtn: true })
         } else {
             this.setState({ showBtn: false })
         }
 
-        this.setState({ newRoom })
+        this.setState({ newValue })
     }
 
     render() {
@@ -46,8 +46,8 @@ export class FloatingInput extends Component {
                     underlineColorAndroid="rgba(0,0,0,0)"
                     placeholderTextColor="rgba(0,0,0,0.7)"
                     onChangeText={(text) => { this.onChangeHandler(text) }}
-                    value={this.state.newRoom}
-                    placeholder="Nazwa pokoju"
+                    value={this.state.newValue}
+                    placeholder={this.props.placeholder}
                 />
                 {
                     this.state.showBtn &&
@@ -60,4 +60,8 @@ export class FloatingInput extends Component {
             </View>
         )
     }
+}
+
+FloatingInput.defualtProps = {
+    placeholder: 'Wprowadz tekst',
 }
