@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Platform } from 'react-native'
 
 export const styles = StyleSheet.create({
   buttonText: {
@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#ffffff',
     letterSpacing: 2,
-    lineHeight: 28,
+    lineHeight: Platform.OS === 'ios' ? 28 : 14,
   },
   button: {
     flex: 0,

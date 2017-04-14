@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Platform } from 'react-native'
 
 export const layoutStyles = StyleSheet.create({
   container: {
@@ -79,6 +79,7 @@ export const layoutStyles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 40,
-    backgroundColor: '#A4C2EA',
+    backgroundColor: Platform.OS === 'ios' ? '#A4C2EA' : 'rgba(0,0,0,0)',
+    overflow: 'hidden',
   }
 })

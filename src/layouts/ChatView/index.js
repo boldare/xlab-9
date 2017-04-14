@@ -91,8 +91,9 @@ export class ChatView extends Component {
                         this.state.message.length > 0 &&
                         <TouchableHighlight 
                             onPress={() => { this.handleSendMessage() }}
+                            style={styles.iconSend}
                         >
-                            <View style={styles.iconSend}>
+                            <View>
                                 <Icon
                                     name="ios-paper-plane"
                                     color="#fff"

@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native'
+import { StyleSheet, Dimensions, Platform } from 'react-native'
 
 export const styles = StyleSheet.create({
   userImage: {
@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     height: 60,
     margin: 10,
     borderRadius: 30,
-    backgroundColor: '#A4C2EA',
+    backgroundColor: Platform.OS === 'ios' ? '#A4C2EA' : 'rgba(0,0,0,0)',
   },
   headerContainer: {
     flex: 1,
