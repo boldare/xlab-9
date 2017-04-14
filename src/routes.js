@@ -44,7 +44,6 @@ export default class Navigation extends Component {
     navigatorConfigScene(route, routeStack) {
         switch (route.direction) {
             case 'LEFT':
-                console.log(route)
                 return Navigator.SceneConfigs.FloatFromLeft
             default:
                 return Navigator.SceneConfigs.PushFromRight
