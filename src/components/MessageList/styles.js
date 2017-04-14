@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native'
+import { StyleSheet, Dimensions, Platform } from 'react-native'
 
 export const styles = StyleSheet.create({
   chatList: {
@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
   },
   listView: {
     margin: 20,
+    paddingBottom: Platform.OS === 'ios' ? 0 : 30,
   },
   listItem: {
     flex: 1,
@@ -51,6 +52,6 @@ export const styles = StyleSheet.create({
     height: 30,
     margin: 5,
     borderRadius: 15,
-    backgroundColor: '#A4C2EA',
+    backgroundColor: Platform.OS === 'ios' ? '#A4C2EA' : 'rgba(0,0,0,0)',
   },
 })

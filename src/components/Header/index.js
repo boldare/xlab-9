@@ -5,6 +5,7 @@ import {
     Text,
     Image,
     TouchableOpacity,
+    Platform,
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -33,9 +34,12 @@ export class Header extends Component {
         return (
             <View style={styles.headerContainer}>
                 <View style={[styles.headerColumn, styles.headerColumnFirst]}>
-                    <TouchableOpacity onPress={() => { this.handleShowProfile() }}>
-                        <Icon name="ios-arrow-back" size={32} color="#635D5C" />
-                    </TouchableOpacity>
+                    {
+                        Platform.OS === 'ios' &&
+                        <TouchableOpacity onPress={() => { this.handleShowProfile() }}>
+                            <Icon name="ios-arrow-back" size={32} color="#635D5C" />
+                        </TouchableOpacity>
+                    }
                 </View>
                 <View style={styles.headerColumn}>
                     <TouchableOpacity onPress={() => { this.handleShowProfile() }}>
