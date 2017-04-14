@@ -20,12 +20,12 @@ export const styles = StyleSheet.create({
     minWidth: '45%',
   },
   buttonGhost: {
-    backgroundColor: 'rgba(255,255,255,0.9)',
+    backgroundColor: 'rgba(255,255,255,0)',
     borderWidth: 2,
     borderColor: '#FFAAB1',
   },
   buttonGhostText: {
-    color: '#FFAAB1',
+    color: '#fff',
   },
   buttonFull: {
     minWidth: '100%',

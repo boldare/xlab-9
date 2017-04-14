@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#B9FAF9',
+    backgroundColor: '#eeefe1',
   },
   headerColumn: {
     flex: 1,
