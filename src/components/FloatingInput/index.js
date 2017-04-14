@@ -25,6 +25,7 @@ export class FloatingInput extends Component {
     submitHandler() {
         if (this.props.onSubmit) {
             this.props.onSubmit(this.state.newRoom)
+            this.setState({ newRoom: '' })
         }
     }
 
@@ -47,13 +48,13 @@ export class FloatingInput extends Component {
                     placeholderTextColor="rgba(0,0,0,0.7)"
                     onChangeText={(text) => { this.onChangeHandler(text) }}
                     value={this.state.newRoom}
-                    placeholder="Nazwa pokoju"
+                    placeholder="Nowy pokój..."
                 />
                 {
                     this.state.showBtn &&
                     <View style={styles.sendIconBox}>
                         <TouchableOpacity onPress={() => { this.submitHandler() }}>
-                            <Text style={styles.sendLabel}>Add</Text>
+                            <Icon style={styles.sendLabel} size={20} name="md-add" />
                         </TouchableOpacity>
                     </View>
                 }

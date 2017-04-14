@@ -13,8 +13,11 @@ import KeyboardSpacer from 'react-native-keyboard-spacer'
 import * as firebase from 'firebase'
 
 import { layoutStyles } from './../styles'
+import { styles } from './styles'
 import { backgroundImage } from '../../images'
 import { Button } from './../../components/Button'
+
+Object.assign(styles, layoutStyles)
 
 export class LoginView extends Component {
     constructor(props) {
@@ -54,53 +57,56 @@ export class LoginView extends Component {
     render() {
         return (
             <ScrollView 
-                contentContainerStyle={layoutStyles.container}
+                contentContainerStyle={styles.container}
                 scrollEnabled={false}
             >
-                <Animated.Image source={backgroundImage} style={layoutStyles.backgroundImage}>
-                    <View style={layoutStyles.row}>
-                        <View style={layoutStyles.section}>
-                            <Text style={layoutStyles.title}>
+                <Animated.Image source={backgroundImage} style={styles.backgroundImage}>
+                    <View style={styles.row}>
+                        <View style={[styles.section, styles.textSection]}>
+                            <Text style={styles.title}>
                                 Witamy w aplikacji
                             </Text>
-                            <Text style={layoutStyles.paragraph}>
+                            <Text style={styles.paragraph}>
                                 Aby dołączyć do chatu {'\n'}
                                 należy się zarejestrować i zalogować {'\n'}
                             </Text>
                             { this.state.error &&
-                                <Text style={layoutStyles.error}>
+                                <Text style={styles.error}>
                                     { this.state.error }
                                 </Text>
                             }
                         </View>
-                        <TextInput
-                            style={layoutStyles.input}
-                            underlineColorAndroid="rgba(0,0,0,0)"
-                            placeholderTextColor="rgba(0,0,0,0.7)"
-                            onChangeText={(email) => this.setState({email})}
-                            value={this.state.email}
-                            placeholder="E-mail"
-                            autoCapitalize='none'
-                        />
-                        <TextInput
-                            style={layoutStyles.input}
-                            underlineColorAndroid="rgba(0,0,0,0)"
-                            placeholderTextColor="rgba(0,0,0,0.7)"
-                            onChangeText={(password) => this.setState({password})}
-                            value={this.state.password}
-                            placeholder="Hasło"
-                            secureTextEntry
-                        />
-                        <View style={[layoutStyles.buttonContainer, { marginTop: 10 }]}>
+                        <View style={styles.inputSection}>
+                            <TextInput
+                                style={styles.input}
+                                underlineColorAndroid="rgba(0,0,0,0)"
+                                placeholderTextColor="rgba(0,0,0,0.7)"
+                                onChangeText={(email) => this.setState({email})}
+                                value={this.state.email}
+                                placeholder="E-mail"
+                                autoCapitalize='none'
+                            />
+                            <TextInput
+                                style={styles.input}
+                                underlineColorAndroid="rgba(0,0,0,0)"
+                                placeholderTextColor="rgba(0,0,0,0.7)"
+                                onChangeText={(password) => this.setState({password})}
+                                value={this.state.password}
+                                placeholder="Hasło"
+                                secureTextEntry
+                            />
+                        </View>
+                        <View style={[styles.buttonContainer, styles.buttonContainerColumn, styles.buttonSection]}>
                             <Button
                                 onPress={() => { this.handleSignIn() }}
                                 title="Zaloguj się"
+                                isFull
                             />
-                        </View>
-                        <View style={layoutStyles.buttonContainer}>
                             <Button
                                 onPress={() => { this.handleSignUp() }}
                                 title="Zarejestruj się"
+                                isGhost
+                                isFull
                             />
                         </View>
                     </View>

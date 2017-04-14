@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#A4C2EA',
+    backgroundColor: '#B9FAF9',
   },
   headerColumn: {
     flex: 1,
@@ -33,14 +33,16 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 5,
   },
   label: {
-    color: '#fff',
+    color: '#635D5C',
     marginLeft: 10,
     marginTop: -1,
   },
   title: {
-    color: '#fff',
+    color: '#635D5C',
     fontSize: 18,
+    textAlign: 'center',
   }
 })

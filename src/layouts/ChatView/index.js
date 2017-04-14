@@ -64,9 +64,9 @@ export class ChatView extends Component {
     render() {
         return (
             <ScrollView
-                scrollEnabled={false}
                 contentContainerStyle={styles.chatView}
                 keyboardShouldPersistTaps="handled"
+                scrollEnabled={false}
             >
                 <ChatHeader {...this.props} />
 

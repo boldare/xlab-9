@@ -34,7 +34,7 @@ export class Header extends Component {
             <View style={styles.headerContainer}>
                 <View style={[styles.headerColumn, styles.headerColumnFirst]}>
                     <TouchableOpacity onPress={() => { this.handleShowProfile() }}>
-                        <Icon name="ios-arrow-back" size={32} color="#fff" />
+                        <Icon name="ios-arrow-back" size={32} color="#635D5C" />
                     </TouchableOpacity>
                 </View>
                 <View style={styles.headerColumn}>
@@ -48,7 +48,7 @@ export class Header extends Component {
                 </View>
                 <View style={[styles.headerColumn, styles.headerColumnLast]}>
                     <TouchableOpacity onPress={() => { this.handleShowProfile() }}>
-                        <Icon name="ios-walk-outline" size={32} color="#fff" />
+                        <Icon name="ios-walk-outline" size={32} color="#635D5C" />
                     </TouchableOpacity>
                 </View>
             </View>

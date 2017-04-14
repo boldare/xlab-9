@@ -7,6 +7,7 @@ import {
     Text,
     Image,
     Animated,
+    Easing,
     TextInput,
     Platform,
 } from 'react-native'
@@ -24,11 +25,11 @@ export class DashboardView extends Component {
 
         this.state = {
             user: this.props.user,
-            photoURL: 'https://api.adorable.io/avatars/160/' + this.props.user.email,
+            photoURL: 'https://api.adorable.io/avatars/160/',
             displayName: this.props.user.displayName ? this.props.user.displayName : '',
             fadeAnim: new Animated.Value(0),
+            fontSizeValue: new Animated.Value(0),
         }
-        console.log(this.state);
     }
 
     handleSetUserData() {
@@ -37,7 +38,7 @@ export class DashboardView extends Component {
 
         this.props.user.updateProfile({
             displayName: this.state.displayName,
-            photoURL: this.state.photoURL,
+            photoURL: this.state.photoURL + this.state.displayName,
         }).then(() => {
             navigator.push({
                 name: 'ROOM',
@@ -53,7 +54,25 @@ export class DashboardView extends Component {
         this.props.navigator.immediatelyResetRouteStack([{ name: 'LOGIN', direction: 'LEFT' }])
     }
 
+    animOnFocus(isFocus) {
+        Animated.spring(
+            this.state.fontSizeValue,
+            {
+                toValue: isFocus ? 1 : 0,
+                duration: 300,
+                easing: Easing.quad,
+            }
+        ).start(() => { console.log('tak') })
+    }
+    
+
     render() {
+        const fullAvatar = this.state.photoURL + this.state.displayName
+        const fontSize = this.state.fontSizeValue.interpolate({
+            inputRange: [0, 1],
+            outputRange: [24, 16]
+        })
+        
         return (
             <ScrollView 
                 contentContainerStyle={styles.container}
@@ -65,21 +84,20 @@ export class DashboardView extends Component {
                             <View style={styles.avatarRow}>
                                 <Image
                                     style={styles.avatar}
-                                    source={{'uri': this.state.photoURL}}
+                                    source={{'uri': fullAvatar}}
                                 />
                             </View>
                             <View style={styles.avatarRow}>
-                                <Text style={styles.title}>
+                                <Animated.Text style={[styles.title, { fontSize }]}>
                                      Witaj!
-                                </Text>
-                                <Text style={styles.title}>
-                                    {this.state.user.email}
-                                </Text>
+                                </Animated.Text>
+                                <View style={styles.titleBox}>
+                                    <Animated.Text style={[styles.title, { fontSize }]}>
+                                        {this.state.user.email}
+                                    </Animated.Text>
+                                </View>
                                 <Text style={styles.paragraph}>
-                                    Wprowadź swoją ksywę, która będzie widoczna na chacie
-                                </Text>
-                                <Text style={[styles.paragraph, styles.userName]}>
-                                   {this.state.displayName}
+                                    Wprowadź swoją ksywę, która będzie widoczna na czacie
                                 </Text>
                             </View>
                         </View>
@@ -90,18 +108,27 @@ export class DashboardView extends Component {
                             onChangeText={(displayName) => this.setState({displayName})}
                             value={this.state.displayName}
                             placeholder="Username"
+                            onFocus={
+                                () => {
+                                    this.animOnFocus(true)
+                                }
+                            }
+                            onBlur={
+                                () => {
+                                     this.animOnFocus()
+                                }
+                            }
                         />
-                        <View style={styles.buttonContainer}>
-                            <Button
-                                onPress={() => { this.handleSetUserData() }}
-                                title="Dalej"
-                                disabled={this.state.displayName === ''}
-                            />
-                        </View>
                         <View style={styles.buttonContainer}>
                             <Button
                                 onPress={() => { this.handleLogOut() }}
                                 title="Wyloguj"
+                                isGhost
+                            />
+                            <Button
+                                onPress={() => { this.handleSetUserData() }}
+                                title="Dalej"
+                                disabled={this.state.displayName === ''}
                             />
                         </View>
                     </View>

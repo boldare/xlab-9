@@ -31,7 +31,7 @@ export class ChatHeader extends Component {
                 <View style={[styles.headerColumn, styles.headerColumnFirst]}>
                     <TouchableOpacity onPress={() => { this.goBack() }}>
                         <View style={styles.goBack}>
-                            <Icon name="ios-arrow-back" size={20} color="#fff" />
+                            <Icon name="ios-arrow-back" size={20} color="#635D5C" />
                             <Text style={styles.label}>
                                 Pokoje
                             </Text>
@@ -40,6 +40,8 @@ export class ChatHeader extends Component {
                 </View>
                 <View style={styles.headerColumn}>
                     <Text style={styles.title}>{this.props.room.name}</Text>
+                </View>
+                <View style={styles.headerColumn}>
                 </View>
             </View>
         )

@@ -50,7 +50,7 @@ export class MessageList extends Component {
                 {
                     isCurrentUser &&
                     <Image
-                        source={{'uri': rowData.userAvatar, cache: 'only-if-cached'}}
+                        source={{'uri': this.props.user.photoURL, cache: 'only-if-cached'}}
                         style={styles.userImage}
                         resizeMode="contain"
                     />
@@ -70,19 +70,23 @@ export class MessageList extends Component {
                         color="black"
                     />
                 }
-                <ListView
-                    enableEmptySections={true}
-                    contentContainerStyle={styles.listView}
-                    dataSource={this.getDataSource()}
-                    renderRow={this.renderRow.bind(this)}
-                    ref={ref => this.scrollView = ref}
-                    onLayout={(event) => {
-                        this.scrollView.scrollToEnd({ animated: false })
-                    }}
-                    onContentSizeChange={(contentWidth, contentHeight)=>{        
-                        this.scrollView.scrollToEnd({ animated: true })
-                    }}
-                />
+                {
+                    this.props.isLoaded &&
+                    <ListView
+                        initialListSize={20}
+                        removeClippedSubviews={false}
+                        contentContainerStyle={styles.listView}
+                        dataSource={this.getDataSource()}
+                        renderRow={this.renderRow.bind(this)}
+                        ref={ref => this.scrollView = ref}
+                        onLayout={(event) => {
+                            this.scrollView.scrollToEnd({ animated: false })
+                        }}
+                        onContentSizeChange={(contentWidth, contentHeight)=>{        
+                            this.scrollView.scrollToEnd({ animated: true })
+                        }}
+                    />
+                }
             </View>
         )
     }

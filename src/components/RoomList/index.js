@@ -64,6 +64,8 @@ export class RoomList extends Component {
                     />
                 }
                 <ListView
+                    initialListSize={20}
+                    removeClippedSubviews={false}
                     contentContainerStyle={styles.listView}
                     dataSource={this.getDataSource()}
                     renderRow={this.renderRow.bind(this)}
