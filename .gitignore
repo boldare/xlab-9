@@ -3,6 +3,7 @@ android/.idea
 android/.gradle
 android/local.properties
 android/app/build
+android/build/
 
 # iOS
 ios/build

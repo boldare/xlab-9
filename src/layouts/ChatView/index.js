@@ -12,7 +12,6 @@ import KeyboardSpacer from 'react-native-keyboard-spacer'
 import Icon from 'react-native-vector-icons/Ionicons'
 
 import { styles } from './styles'
-import { Button } from './../../components/Button'
 import { MessageList } from './../../components/MessageList'
 import { ChatHeader } from './../../components/ChatHeader'
 
@@ -69,7 +68,7 @@ export class ChatView extends Component {
                 contentContainerStyle={styles.chatView}
                 keyboardShouldPersistTaps="handled"
             >
-                <ChatHeader { ...this.props } />
+                <ChatHeader {...this.props} />
 
                 <MessageList
                     ref={ ref => this.messageList = ref }
@@ -82,10 +81,10 @@ export class ChatView extends Component {
                     <TextInput
                         style={styles.sendInput}
                         underlineColorAndroid="rgba(0,0,0,0)"
-                        placeholderTextColor="rgba(0,0,0,0.7)"
+                        placeholderTextColor="rgba(0,0,0,0.4)"
                         onChangeText={(message) => { this.setState({message}) }}
                         value={this.state.message}
-                        placeholder="Text me..."
+                        placeholder="Wpisz wiadomość..."
                         autoCapitalize='none'
                     />
                     {

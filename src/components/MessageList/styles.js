@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
   listItemLabel: {
     fontSize: 14,
   },
-  listItemAuthor: {
+  listItemOwner: {
     fontSize: 12,
     opacity: .7,
   },

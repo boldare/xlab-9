@@ -37,8 +37,12 @@ export class RoomList extends Component {
             <TouchableOpacity onPress={() => { this.handleShowChat(rowData) }}>
                 <View style={styles.listItem}>
                     <View style={styles.listItemColumn}>
-                        <Text style={styles.listItemLabel}>{rowData.name}</Text>
-                        <Text style={styles.listItemAuthor}>{rowData.author}</Text>
+                        <Text style={styles.listItemLabel}>
+                            {rowData.name}
+                        </Text>
+                        <Text style={styles.listItemOwner}>
+                            Właściciel: {rowData.owner}
+                        </Text>
                     </View>
                     <View style={styles.listItemColumnIcons}>
                         <Icon name="ios-arrow-forward-outline" size={28} color="#000" />

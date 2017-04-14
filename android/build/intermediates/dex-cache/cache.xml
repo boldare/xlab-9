@@ -3,12 +3,12 @@
 
     <item
         is-multidex="false"
-        jar="/Users/patryk/Desktop/apps/xlab-react-native/android/app/build/intermediates/exploded-aar/xlab/react-native-vector-icons/unspecified/jars/classes.jar"
+        jar="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/exploded-aar/xlab/react-native-vector-icons/unspecified/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="b319ff9834bbeb9be394687614eb86892699ea14">
-        <dex dex="/Users/patryk/Desktop/apps/xlab-react-native/android/app/build/intermediates/pre-dexed/debug/xlab-react-native-vector-icons-unspecified_78f147913651460d522d510cf5e3d8fae685fce3.jar" />
+        <dex dex="/Users/sebastianmusial/Apps/xlabReactNative/android/app/build/intermediates/pre-dexed/debug/xlab-react-native-vector-icons-unspecified_cf4fc5b7797a8b7ca95215b5ae63cc62c007ab14.jar" />
     </item>
 
 </items>

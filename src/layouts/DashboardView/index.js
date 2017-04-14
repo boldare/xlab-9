@@ -28,6 +28,7 @@ export class DashboardView extends Component {
             displayName: this.props.user.displayName ? this.props.user.displayName : '',
             fadeAnim: new Animated.Value(0),
         }
+        console.log(this.state);
     }
 
     handleSetUserData() {
@@ -64,7 +65,7 @@ export class DashboardView extends Component {
                             <View style={styles.avatarRow}>
                                 <Image
                                     style={styles.avatar}
-                                    source={{'uri': this.state.photoURL, cache: 'only-if-cached'}}
+                                    source={{'uri': this.state.photoURL}}
                                 />
                             </View>
                             <View style={styles.avatarRow}>
