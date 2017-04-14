@@ -64,8 +64,8 @@ export class LoginView extends Component {
                                 Witamy w aplikacji
                             </Text>
                             <Text style={layoutStyles.paragraph}>
-                                Aby dołączy do chatu {'\n'}
-                                nalezy się zarejestrowac i zalogowac {'\n'}
+                                Aby dołączyć do chatu {'\n'}
+                                należy się zarejestrować i zalogować {'\n'}
                             </Text>
                             { this.state.error &&
                                 <Text style={layoutStyles.error}>

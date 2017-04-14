@@ -63,7 +63,8 @@ export class RoomView extends Component {
             rooms.forEach((child) => {
                 items.push({
                     name: child.val().name,
-                    author: child.val().author,
+                    owner: child.val().owner,
+                    ownerId: child.val().ownerId,
                     creationDate: child.val().creationDate,
                     _key: child.key
                 })
@@ -79,8 +80,8 @@ export class RoomView extends Component {
     handleAddRoom(newRoom) {
         this.roomRef.push({
             name: newRoom,
-            author: this.props.user.displayName,
-            authorId: this.props.user.uid,
+            owner: this.props.user.displayName,
+            ownerId: this.props.user.uid,
             creationDate: Date.now(),
         }).then(data => {
             this.showAlert()

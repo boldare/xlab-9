@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {
     View,
     Text,
-    TouchableOpacity,
     ActivityIndicator,
     ListView,
     Image,
@@ -37,11 +36,15 @@ export class MessageList extends Component {
                 <View style={styles.listItemBox}>
                     {
                         !isCurrentUser &&
-                        <Text style={styles.listItemAuthor}>{rowData.userName}</Text>
+                        <Text style={styles.listItemOwner}>
+                            {rowData.userName}
+                        </Text>
                     }
 
                     <View style={[styles.listItemTextBox, isCurrentUser ? styles.userTextBox : {}]}>
-                        <Text style={styles.listItemText}>{rowData.message}</Text>
+                        <Text style={styles.listItemText}>
+                            {rowData.message}
+                        </Text>
                     </View>
                 </View>
                 {
