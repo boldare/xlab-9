@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>XLab #9 - React Native</title>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500" rel="stylesheet">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/simple.css">
+		<link rel="stylesheet" href="css/main.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<img class="header__image" src="http://angular.github.io/react-native-renderer/assets/react.png" />
+					<h3 class="header">React Native</h3>
+					<p>Aplikacja do wysyłania wiadomości</p>
+					<aside class="notes">
+						Cześć wszystkim!! Witam wszystkich na dzisiejszych warsztatach Xlab.
+						Dzisiaj chcielibyśmy pokazać wam jak łatwo kazdy znajacy JavaScript i React'a jest w stanie stworzyć aplikacje natwyne na Android i IOS'a
+					</aside>
+				</section>
+				<section>
+					<section>
+						<h3 class="header">Kto jest kim?</h3>
+					</section>
+					<section>
+						<div class="image--circle">
+							<img src="https://scontent-waw1-1.xx.fbcdn.net/v/t31.0-8/12916894_972843659451286_3966225881932606764_o.jpg?oh=3ab24c3dd2de5705cd8b98f6e3db99f9&oe=5993CD3D"/>
+						</div>
+						<h3 class="header header--small">Patryk Domałeczny</h3>
+						<ul class="list">
+							<li>Prawie najmłodszy Front-End developer w Chilid</li>
+							<li>Zna AngularJS, React'a, VueJS</li>
+							<li>Hobbystycznie bawi się w budowanie aplikacji natywnych z wykorzystanie JavaScript'u</li>
+							<li>Po godzinnach DJ-amator</li>
+						</ul>
+					</section>
+					<section>
+						<h3 class="header header--small">Kto jest kim?</h3>
+					</section>
+					<section>
+						<h3 class="header header--small">Kto jest kim?</h3>
+					</section>
+				</section>
+			</div>
+			<div class="floating-footer">
+				<img src="https://chilid.com/assets/images/logos/logo-chilid-blackish.svg" />
+				<p>Xlab #9 - React Native</p>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
