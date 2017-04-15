@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native'
+import { StyleSheet, Dimensions, Platform } from 'react-native'
 
 export const styles = StyleSheet.create({
   roomList: {
@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
   },
   listView: {
     margin: 20,
+    paddingBottom: Platform.OS === 'io' ? 0 : 30,
   },
   listItem: {
     flex: 1,

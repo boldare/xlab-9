@@ -3,6 +3,7 @@ import * as firebase from 'firebase'
 import { 
     Navigator, 
     View,
+    BackAndroid,
 } from 'react-native'
 import {
     SplashScreen,
@@ -22,6 +23,15 @@ export default class Navigation extends Component {
         this.state = {
             user: null,
         }
+
+        BackAndroid.addEventListener('hardwareBackPress', () => {
+            const currentRoutes = this.navigator.getCurrentRoutes()
+            if (currentRoutes.length > 2 && currentRoutes.slice(-1).name !== 'DASHBOARD') {
+                this.navigator.pop()
+                return true
+            }
+            return false
+        })
     }
     
     componentDidMount() {

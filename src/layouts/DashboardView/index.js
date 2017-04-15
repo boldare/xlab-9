@@ -62,7 +62,7 @@ export class DashboardView extends Component {
                 duration: 300,
                 easing: Easing.quad,
             }
-        ).start(() => { console.log('tak') })
+        ).start()
     }
     
 

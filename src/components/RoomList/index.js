@@ -69,6 +69,7 @@ export class RoomList extends Component {
                     contentContainerStyle={styles.listView}
                     dataSource={this.getDataSource()}
                     renderRow={this.renderRow.bind(this)}
+                    overScrollMode="never"
                 />
             </View>
         )

@@ -86,13 +86,15 @@ export class ChatView extends Component {
                         value={this.state.message}
                         placeholder="Wpisz wiadomość..."
                         autoCapitalize='none'
+                        multiline
                     />
                     {
                         this.state.message.length > 0 &&
                         <TouchableHighlight 
                             onPress={() => { this.handleSendMessage() }}
+                            style={styles.iconSend}
                         >
-                            <View style={styles.iconSend}>
+                            <View>
                                 <Icon
                                     name="ios-paper-plane"
                                     color="#fff"

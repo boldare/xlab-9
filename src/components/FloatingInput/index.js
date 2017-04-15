@@ -18,7 +18,6 @@ export class FloatingInput extends Component {
         this.btnAnimValue = new Animated.Value(0)
         this.state = {
             newRoom: '',
-            showBtn: false,
         }
     }
 
@@ -30,12 +29,6 @@ export class FloatingInput extends Component {
     }
 
     onChangeHandler(newRoom) {
-        if (newRoom.length > 0) {
-            this.setState({ showBtn: true })
-        } else {
-            this.setState({ showBtn: false })
-        }
-
         this.setState({ newRoom })
     }
 
@@ -51,7 +44,7 @@ export class FloatingInput extends Component {
                     placeholder="Nowy pokój..."
                 />
                 {
-                    this.state.showBtn &&
+                    this.state.newRoom.length > 0 &&
                     <View style={styles.sendIconBox}>
                         <TouchableOpacity onPress={() => { this.submitHandler() }}>
                             <Icon style={styles.sendLabel} size={20} name="md-add" />

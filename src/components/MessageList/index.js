@@ -73,6 +73,7 @@ export class MessageList extends Component {
                 {
                     this.props.isLoaded &&
                     <ListView
+                        enableEmptySections={true}
                         initialListSize={20}
                         removeClippedSubviews={false}
                         contentContainerStyle={styles.listView}
