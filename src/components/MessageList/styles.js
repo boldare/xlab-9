@@ -18,6 +18,7 @@ export const styles = StyleSheet.create({
     marginTop: 20,
   },
   userListItem: {
+    marginLeft: 25,
     justifyContent: 'flex-end',
   },
   listItemBox: {
@@ -33,7 +34,7 @@ export const styles = StyleSheet.create({
     marginTop: 10,
   },
   userTextBox: {
-    backgroundColor: '#FFAAB1',
+    backgroundColor: '#FF5967',
   },
   listItemLabel: {
     fontSize: 14,

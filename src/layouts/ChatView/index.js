@@ -86,6 +86,7 @@ export class ChatView extends Component {
                         value={this.state.message}
                         placeholder="Wpisz wiadomość..."
                         autoCapitalize='none'
+                        multiline
                     />
                     {
                         this.state.message.length > 0 &&

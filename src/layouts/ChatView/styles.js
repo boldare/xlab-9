@@ -28,11 +28,11 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         position: 'absolute',
-        right: 5,
+        right: 20,
         bottom: 15,
         width: 35,
         height: 35,
         borderRadius: 35/2,
-        backgroundColor: '#EF959C',
+        backgroundColor: '#FF5967',
     }
 })

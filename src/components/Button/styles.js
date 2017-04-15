@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFAAB1',
+    backgroundColor: '#FF5967',
     borderRadius: 50,
     height: 50,
     marginVertical: 5,
@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
   buttonGhost: {
     backgroundColor: 'rgba(255,255,255,0)',
     borderWidth: 2,
-    borderColor: '#FFAAB1',
+    borderColor: '#FF5967',
   },
   buttonGhostText: {
     color: '#fff',
