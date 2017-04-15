@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import * as firebase from 'firebase'
 import {
     View,
     Text,
-    Image,
     TouchableOpacity,
     Platform,
 } from 'react-native'
@@ -19,11 +17,6 @@ export class ChatHeader extends Component {
 
     goBack() {
         this.props.navigator.jumpBack()
-    }
-
-    handleLogOut() {
-        firebase.auth().signOut()
-        this.props.navigator.immediatelyResetRouteStack([{ name: 'LOGIN' }])
     }
 
     render() {
@@ -45,8 +38,7 @@ export class ChatHeader extends Component {
                 <View style={styles.headerColumn}>
                     <Text style={styles.title}>{this.props.room.name}</Text>
                 </View>
-                <View style={styles.headerColumn}>
-                </View>
+                <View style={styles.headerColumn}></View>
             </View>
         )
     }
