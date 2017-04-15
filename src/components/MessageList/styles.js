@@ -16,8 +16,10 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingBottom: 20,
     marginTop: 20,
+    marginRight: 40,
   },
   userListItem: {
+    marginRight: 0,
     marginLeft: 25,
     justifyContent: 'flex-end',
   },
