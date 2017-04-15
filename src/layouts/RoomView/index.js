@@ -15,7 +15,6 @@ import { styles } from './styles'
 import { backgroundImage } from '../../images/'
 import { Header } from './../../components/Header'
 import { RoomList } from './../../components/RoomList'
-import { FloatingButton } from './../../components/FloatingButton'
 import { FloatingInput } from './../../components/FloatingInput'
 
 export class RoomView extends Component {
@@ -24,8 +23,6 @@ export class RoomView extends Component {
         this.state = {
             rooms: null,
             isLoaded: false,
-            heightValue: new Animated.Value(0),
-            isInputActive: false,
         }
 
         this.roomRef = firebase.database().ref().child('rooms')
@@ -33,28 +30,6 @@ export class RoomView extends Component {
 
     componentDidMount() {
         this.listenRooms()
-    }
-
-    showNewRoomInput() {
-        Animated.timing(
-            this.state.heightValue,
-            {
-                toValue: 1,
-                duration: 300,
-                easing: Easing.quad
-            }
-        ).start()
-    }
-
-    hideNewRoomInput() {
-        Animated.timing(
-            this.state.heightValue,
-            {
-                toValue: 0,
-                duration: 300,
-                easing: Easing.quad
-            }
-        ).start()
     }
 
     listenRooms() {
@@ -98,14 +73,10 @@ export class RoomView extends Component {
     }
 
     render() {
-        const heightValue = this.state.heightValue.interpolate({
-            inputRange: [0, 1],
-            outputRange: [0, 60]
-        })
-
         return (
             <ScrollView 
                 contentContainerStyle={layoutStyles.containerWithHeader}
+                keyboardShouldPersistTaps="handled"
                 scrollEnabled={false}
             >
                 <Animated.Image source={backgroundImage} style={layoutStyles.backgroundImage}>
@@ -116,33 +87,15 @@ export class RoomView extends Component {
                             isLoaded={this.state.isLoaded}
                             {...this.props}
                         />
-                        <Animated.View style={{ height: heightValue }}>
+                        {
+                            this.state.isLoaded &&
                             <FloatingInput
                                 onSubmit={(newRoom) => {
                                     this.handleAddRoom(newRoom)
-                                    this.hideNewRoomInput()
-                                    this.setState({ isInputActive: false })
                                 }}
                             />
-                        </Animated.View>
+                        }
                     </View>
-                    {
-                        this.state.isLoaded &&
-                        <Animated.View style={{ bottom: heightValue }}>
-                            <FloatingButton
-                                isActive={this.state.isInputActive}
-                                onPress={() => {
-                                    if (this.state.isInputActive) {
-                                        this.hideNewRoomInput()
-                                        this.setState({ isInputActive: false })
-                                    } else {
-                                        this.showNewRoomInput()
-                                        this.setState({ isInputActive: true })
-                                    }
-                                }}
-                            />
-                        </Animated.View>
-                    }
                 </Animated.Image>
                 {
                     Platform.OS === 'ios' &&

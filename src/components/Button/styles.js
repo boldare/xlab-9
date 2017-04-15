@@ -2,15 +2,33 @@ import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   buttonText: {
-    margin: 10,
-    fontSize: 12,
+    fontSize: 14,
     textAlign: 'center',
     color: '#ffffff',
-    letterSpacing: 1,
+    letterSpacing: 2,
+    lineHeight: 28,
   },
   button: {
-    backgroundColor: 'rgba(0,0,0,0.9)',
-    borderRadius: 4,
+    flex: 0,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FFAAB1',
+    borderRadius: 50,
+    height: 50,
+    marginVertical: 5,
+    minWidth: '45%',
+  },
+  buttonGhost: {
+    backgroundColor: 'rgba(255,255,255,0)',
+    borderWidth: 2,
+    borderColor: '#FFAAB1',
+  },
+  buttonGhostText: {
+    color: '#fff',
+  },
+  buttonFull: {
+    minWidth: '100%',
   },
   buttonDisable: {
     opacity: 0.4,
