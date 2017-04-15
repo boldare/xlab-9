@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import * as firebase from 'firebase'
 import {
     View,
-    Text,
     Image,
     TouchableOpacity,
     Platform,
@@ -51,7 +50,7 @@ export class Header extends Component {
                     </TouchableOpacity>
                 </View>
                 <View style={[styles.headerColumn, styles.headerColumnLast]}>
-                    <TouchableOpacity onPress={() => { this.handleShowProfile() }}>
+                    <TouchableOpacity onPress={() => { this.handleLogOut() }}>
                         <Icon name="ios-walk-outline" size={32} color="#635D5C" />
                     </TouchableOpacity>
                 </View>
