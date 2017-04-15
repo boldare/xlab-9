@@ -28,7 +28,8 @@ export class MessageList extends Component {
                 {
                     !isCurrentUser &&
                     <Image
-                        source={{'uri': rowData.userAvatar, cache: 'only-if-cached'}}
+                        key={rowData.userAvatar}
+                        source={{'uri': rowData.userAvatar}}
                         style={styles.userImage}
                         resizeMode="contain"
                     />
