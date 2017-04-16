@@ -31,6 +31,16 @@ export class RoomView extends Component {
     }
 
     listenRooms() {
+        // TODO :: DELETE BELOW
+        this.setState({
+            rooms: [
+                {
+                    name: 'Test',
+                    owner: 'Tester',
+                }
+            ],
+            isLoaded: true, 
+        })
         /*
             ZADANIE NR.3 - WebSockety, Firebase
             TODO :: Ustawienie listener'a na dodawanie i wczytywanie pokoi
