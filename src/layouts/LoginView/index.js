@@ -73,10 +73,11 @@ export class LoginView extends Component {
                                 Aby dołączyć do chatu {'\n'}
                                 należy się zarejestrować i zalogować {'\n'}
                             </Text>
-                            { this.state.error &&
-                                <Text style={styles.error}>
-                                    { this.state.error }
-                                </Text>
+                            { 
+                                /*
+                                    ZADANIE NR.1 - Logowanie
+                                    TODO :: Wyświetlanie error'a
+                                */
                             }
                         </View>
                         <View style={styles.inputSection}>
@@ -84,7 +85,7 @@ export class LoginView extends Component {
                                 style={styles.input}
                                 underlineColorAndroid="rgba(0,0,0,0)"
                                 placeholderTextColor="rgba(0,0,0,0.7)"
-                                onChangeText={(email) => this.setState({email})}
+                                onChangeText={(email) => this.setState({ email })}
                                 value={this.state.email}
                                 placeholder="E-mail"
                                 autoCapitalize='none'
@@ -93,10 +94,9 @@ export class LoginView extends Component {
                                 style={styles.input}
                                 underlineColorAndroid="rgba(0,0,0,0)"
                                 placeholderTextColor="rgba(0,0,0,0.7)"
-                                onChangeText={(password) => this.setState({password})}
+                                onChangeText={(password) => this.setState({ password })}
                                 value={this.state.password}
                                 placeholder="Hasło"
-                                secureTextEntry
                             />
                         </View>
                         <View style={[styles.buttonContainer, styles.buttonContainerColumn, styles.buttonSection]}>
