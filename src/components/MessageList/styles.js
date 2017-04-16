@@ -12,11 +12,6 @@ export const styles = StyleSheet.create({
     paddingBottom: Platform.OS === 'ios' ? 0 : 30,
   },
   listItem: {
-    flex: 1,
-    flexDirection: 'row',
-    paddingBottom: 20,
-    marginTop: 20,
-    marginRight: 40,
   },
   loader: {
     height: '100%',
