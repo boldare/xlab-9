@@ -14,28 +14,22 @@ import {
 } from './layouts'
 import { firebaseConfig } from './config'
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-
 export default class Navigation extends Component {
     constructor(props) {
         super(props)
     }
     
     componentDidMount() {
-        firebase.auth().onAuthStateChanged(userData => {
-            if (userData) {
-                this.navigator.push({
-                    name: 'DASHBOARD',
-                    user: userData,
-                })
-            } else {
-                if (this.navigator.getCurrentRoutes()[0].name === 'SPLASH') {
-                    this.navigator.push({
-                        name: 'LOGIN',
-                    })
-                }
-            }
-        })
+        /*
+            ZADANIE NR.1 - Logowanie
+            TODO :: Sprawdzenie czy jestesmy juz zalogowani
+        */
+
+        if (this.navigator.getCurrentRoutes()[0].name === 'SPLASH') {
+            this.navigator.push({
+                name: 'LOGIN',
+            })
+        }
     }
 
     navigatorConfigScene(route, routeStack) {

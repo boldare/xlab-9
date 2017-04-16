@@ -27,22 +27,25 @@ export class LoginView extends Component {
             email: '',
             password: '',
             error: false,
-            fadeAnim: new Animated.Value(0),
         }
     }
 
     handleSignIn() {
         this.setState({ error: false })
 
-        firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-            .catch(error => this.setState({ error: error.message }))
+        /*
+            ZADANIE NR.1 - Logowanie
+            TODO :: Logowanie
+        */
     }
 
     handleSignUp() {
         this.setState({ error: false })
 
-        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-            .catch(error => this.setState({ error: error.message }))
+        /*
+            ZADANIE NR.1 - Logowanie
+            TODO :: Rejestracja
+        */
     }
 
     successAlert(user) {
