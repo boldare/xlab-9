@@ -18,20 +18,7 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 export default class Navigation extends Component {
     constructor(props) {
-        super(props);
-        
-        this.state = {
-            user: null,
-        }
-
-        BackAndroid.addEventListener('hardwareBackPress', () => {
-            const currentRoutes = this.navigator.getCurrentRoutes()
-            if (currentRoutes.length > 2 && currentRoutes.slice(-1).name !== 'DASHBOARD') {
-                this.navigator.pop()
-                return true
-            }
-            return false
-        })
+        super(props)
     }
     
     componentDidMount() {
