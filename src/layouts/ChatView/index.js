@@ -24,41 +24,34 @@ export class ChatView extends Component {
             isLoaded: false,
             isKeyboardActive: false,
         }
-        this.messagesRef = firebase.database().ref().child('rooms/' + this.props.room._key + '/messages')
     }
 
     componentDidMount() {
-        this.messagesRef.on('value', messages => {
-            var items = [];
-
-            messages.forEach((child) => {
-                items.push({
-                    userName: child.val().userName,
-                    userId: child.val().userId,
-                    userAvatar: child.val().userAvatar,
-                    message: child.val().message,
-                    creationDate: child.val().creationDate,
-                    _key: child.key
-                });
-            });
-
-            this.setState({ 
-                messages: items,
-                isLoaded: true,
-            })
-        });
+        /*
+            ZADANIE NR.4 - WYSYŁANIE WIADOMOŚCI
+            TODO :: Ustawienie listener'a na wysyłke i odbiór wiadomości + załadowanie
+            {
+                userName
+                userId
+                userAvatar
+                message
+                creationDate
+            }
+        */
     }
 
     handleSendMessage() {
-        this.messagesRef.push({
-            userName: this.props.user.displayName,
-            userId: this.props.user.uid,
-            userAvatar: this.props.user.photoURL,
-            message: this.state.message,
-            creationDate: Date.now(),
-        }).then(data => {
-            this.setState({ message: '' })
-        });
+        /*
+            ZADANIE NR.4 - WYSYŁANIE WIADOMOŚCI
+            TODO :: Obsługa wysyłania wiadomości
+            {
+                userName
+                userId
+                userAvatar
+                message
+                creationDate
+            }
+        */
     }
 
     render() {
