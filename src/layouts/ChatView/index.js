@@ -28,7 +28,7 @@ export class ChatView extends Component {
 
     componentDidMount() {
         /*
-            ZADANIE NR.4 - WYSYŁANIE WIADOMOŚCI
+            ZADANIE NR.3 - WebSockety, Firebase
             TODO :: Ustawienie listener'a na wysyłke i odbiór wiadomości + załadowanie
             {
                 userName
@@ -42,7 +42,7 @@ export class ChatView extends Component {
 
     handleSendMessage() {
         /*
-            ZADANIE NR.4 - WYSYŁANIE WIADOMOŚCI
+            ZADANIE NR.3 - WebSockety, Firebase
             TODO :: Obsługa wysyłania wiadomości
             {
                 userName

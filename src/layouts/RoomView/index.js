@@ -24,8 +24,6 @@ export class RoomView extends Component {
             rooms: null,
             isLoaded: false,
         }
-
-        this.roomRef = firebase.database().ref().child('rooms')
     }
 
     componentDidMount() {
@@ -33,34 +31,30 @@ export class RoomView extends Component {
     }
 
     listenRooms() {
-        this.roomRef.on('value', rooms => {
-            const items = []
-            rooms.forEach((child) => {
-                items.push({
-                    name: child.val().name,
-                    owner: child.val().owner,
-                    ownerId: child.val().ownerId,
-                    creationDate: child.val().creationDate,
-                    _key: child.key
-                })
-            })
-
-            this.setState({ 
-                rooms: items.reverse(),
-                isLoaded: true,
-            })
-        })
+        /*
+            ZADANIE NR.3 - WebSockety, Firebase
+            TODO :: Ustawienie listener'a na dodawanie i wczytywanie pokoi
+            {
+                userName
+                userId
+                userAvatar
+                message
+                creationDate
+            }
+        */
     }
 
     handleAddRoom(newRoom) {
-        this.roomRef.push({
-            name: newRoom,
-            owner: this.props.user.displayName,
-            ownerId: this.props.user.uid,
-            creationDate: Date.now(),
-        }).then(data => {
-            this.showAlert()
-        })
+        /*
+            ZADANIE NR.3 - WebSockety, Firebase
+            TODO :: Obsługa wysyłania wiadomości
+            {
+                name
+                owner
+                ownerId
+                creationDate
+            }
+        */
     }
 
     showAlert() {
