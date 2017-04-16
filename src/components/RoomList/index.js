@@ -17,13 +17,10 @@ export class RoomList extends Component {
     }
 
     handleShowChat(room) {
-        this.props.navigator.push({
-            name: 'CHAT',
-            passProps: {
-                room: room,
-                user: this.props.user,
-            }
-        })
+        /*
+            ZADANIE NR.2 - Routing
+            TODO :: Widok pojedynczego czatu
+        */
     }
 
     getDataSource() {
