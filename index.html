@@ -37,6 +37,15 @@
 				<section>
 					<section>
 						<h3 class="header">Kto jest kim?</h3>
+						<aside class="notes">
+							Na początku chcielibyśmy się przedstawić 
+						</aside>
+					</section>
+					<section>
+						<img  src="https://chilid.com/assets/images/logos/logo-chilid-blackish.svg" />
+						<aside class="notes">
+							Wszyscy jesteśmy Front-End Developer'ami w Chilid 
+						</aside>
 					</section>
 					<section>
 						<div class="image--circle">
@@ -49,13 +58,207 @@
 							<li>Hobbystycznie bawi się w budowanie aplikacji natywnych z wykorzystanie JavaScript'u</li>
 							<li>Po godzinnach DJ-amator</li>
 						</ul>
+						<aside class="notes">
+							Od prawie 3 lat zajmuję się Front-End developmentem,
+							Pisałem aplikacje w AngularJS w wersji 1.5, w React'cie z wykorzystanie Redux'a i Rxjs,
+							Od roku zacząłem co raz bardziej zgłębiać tajniki Electrona'a i rozwoju aplikacji na Windows'a,
+							Linuxa i OSX przy wykorzystaniu JavaScript'u
+							W wolnym czasie gram jako DJ i tworzę muzykę 
+						</aside>
 					</section>
 					<section>
-						<h3 class="header header--small">Kto jest kim?</h3>
+						<h3 class="header header--small">Sebastian Musiał</h3>
 					</section>
 					<section>
-						<h3 class="header header--small">Kto jest kim?</h3>
+						<h3 class="header header--small">Krystian Kościelniak</h3>
 					</section>
+					
+				</section>
+				<section>
+					<section>
+							<h3 class="header">Co to React Native?</h3>
+					</section>
+					<section>
+							<img class="header__image" src="http://angular.github.io/react-native-renderer/assets/react.png" />
+							<h3 class="header header--between"> + </h3>
+							<div class="inline-block">
+								<img src="https://www.marketjs.com/shell/ios/sales/ioslogo.png" />
+								<img class="android" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBzfcPhx-FbFeFHgUOt7AZdXiCHDTwnIURu2UAnBr2HDrM95393A" />
+							</div>
+					</section>
+					<section>
+							<img class="header__image header__image--big" src="https://hharnisc.github.io/images/posts/react-native-bridge.png" />
+					</section>
+					<section>
+							<img class="header__image header__image--very-big" src="/images/diagram.svg" />
+					</section>
+				</section>
+				<section>
+						<h3 class="header">Firebase</h3>
+				</section>
+				<section>
+					<section>
+							<h3 class="header">Rozstawienie środowiska</h3>
+					</section>
+					<section>
+							<h3 class="header header--small">git clone git@github.com:xsolve-pl/xlab-9.git</h3>
+					</section>
+					<section>
+							<h3 class="header header--small">Zainstalowanie wszystkich modułów</h3>
+							<pre>
+								<code class="Bash" data-trim data-noescape>
+									npm install && react-native link
+								</code>
+							</pre>
+					</section>
+					<section>
+							<img class="header__image" src="https://www.marketjs.com/shell/ios/sales/ioslogo.png" />
+							<pre>
+								<code class="Bash" data-trim data-noescape>
+									react-native run-ios
+								</code>
+							<img class="header__image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBzfcPhx-FbFeFHgUOt7AZdXiCHDTwnIURu2UAnBr2HDrM95393A" />
+							<code class="Bash" data-trim data-noescape>
+									react-native run-android
+								</code>
+							</pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3 class="header">Struktura aplikacji</h3>
+					</section>
+					<section>
+						<img class="header__image header__image--big" src="/images/struktura.png" />
+					</section>
+					<section>
+						<img class="header__image header__image--big" src="/images/struktura2.png" />
+					</section>
+					<section>
+						<h3 class="header header--small">layouts/LayoutView.js</h3>
+						<img class="header__image header__image--medium" src="/images/header.png" />
+					</section>
+					<section>
+						<h3 class="header header--small">layouts/LayoutView.js</h3>
+						<img class="header__image header__image--medium" src="/images/top-header.png" />
+					</section>
+					<section>
+						<h3 class="header header--small">layouts/LayoutView.js</h3>
+						<img class="header__image header__image--medium" src="/images/comp-return.png" />
+					</section>
+				</section>
+				<section>
+					<section>
+							<h3 class="header">Logowanie</h3>
+					</section>
+					<section>
+						<video width="400" height="400" autoplay loop>
+							<source src="/images/logowanie-rej.mov" type="video/webm">
+						</video>
+					</section>
+					<section>
+						<pre>
+							<code class="js" data-trim>
+								firebase.initializeApp(Object: firebaseConfig): Object
+							</code>
+						</pre>
+					</section>
+					<section>
+						<pre>
+							<code class="js" data-trim>
+								firebase
+									.auth()
+									.signInWithEmailAndPassword(String: email, String: password): Promise
+
+								firebase
+									.auth()
+									.createUserWithEmailAndPassword(String: email, String: password): Promise
+
+								firebase
+									.auth()
+									.onAuthStateChanged(Function: (userData) => {}): Promise
+							</code>
+						</pre>
+					</section>
+					
+				</section>
+				<section>
+					<h3 class="header">Przerwa 🍔⏱</h3>
+				</section>
+				<section>
+						<section>
+								<h3 class="header">Routing i własne komponenty</h3>
+						</section>
+						<section>
+								<video width="400" height="400" autoplay loop>
+									<source src="/images/components.mov" type="video/webm">
+								</video>
+						</section>
+						<section>
+							<img class="header__image header__image--medium" src="/images/comp-dirs.png" />
+						</section>
+						<section>
+							<h3 class="header header--small">components/Header/index.js</h3>
+							<img class="header__image header__image--medium" src="/images/comp-struct.png" />
+						</section>
+						<section>
+							<h3 class="header header--small">components/Header/styles.js</h3>
+							<img class="header__image header__image--medium" src="/images/comp-styles.png" />
+						</section>
+						<section>
+							<h3 class="header">Navigator</h3>
+							<img class="header__image header__image--medium" src="/images/comp-routing.png" />
+						</section>
+						<section>
+							<h3 class="header">Alert</h3>
+							<img class="header__image header__image--medium" src="/images/comp-alert.png" />
+						</section>
+				</section>
+				<section>
+						<section>
+							<h3 class="header">Firebase integracja</h3>
+						</section>
+						<section>
+							<video width="400" height="400" autoplay loop>
+								<source src="/images/firebase.mov" type="video/webm">
+							</video>
+						</section>
+				</section>
+				<section>
+						<section>
+							<h3 class="header">List wiadomości</h3>
+						</section>
+						<section>
+							<video width="400" height="400" autoplay loop>
+								<source src="/images/wysyłanie-1.mov" type="video/webm">
+							</video>
+						</section>
+				</section>
+				<section>
+						<section>
+								<h3 class="header header--small">Można wysyłać aplikację do sklepu 🚀</h3>
+						</section>
+						<section>
+								<h3 class="header header--small">Zajarani? 🔥</h3>
+								<h3 class="header header--small">Więcej info na 📖</h3>
+								<ul class="list">
+									<li>
+										<a href="https://github.com/jondot/awesome-react-native">https://github.com/jondot/awesome-react-native</a>
+									</li>
+									<li>
+										<a href="https://medium.com/tag/react-native">https://medium.com/tag/react-native</a>
+									</li>
+									<li>
+										<a href="https://facebook.github.io/react-native/">https://facebook.github.io/react-native</a>
+									</li>
+									<li>
+										<a href="http://www.reactnative.com">http://www.reactnative.com</a>
+									</li>
+								</ul>
+						</section>
+						<section>
+								<h3 class="header header--small">Dziękujemy za przyjście i zapraszamy ponownie 🎉🎉🎉</h3>
+						</section>
 				</section>
 			</div>
 			<div class="floating-footer">

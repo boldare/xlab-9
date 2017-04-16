@@ -12,6 +12,14 @@ body * {
     font-size: 0.75em;
 }
 
+.reveal .header--between {
+    margin: 20px 0 0 0;
+}
+.reveal .header--small {
+    font-weight: 300;
+    font-size: 0.75em;
+}
+
 .reveal p {
     font-weight: 300;
     font-size: 0.75em;
@@ -62,6 +70,19 @@ body * {
     box-shadow: none;
 }
 
+.reveal .header__image--medium {
+    max-width: 350px;
+}
+
+.reveal .header__image--big {
+    max-width: 600px;
+}
+
+.reveal .header__image--very-big {
+    width: 800px;
+    max-width: none;
+}
+
 .reveal .image--circle {
     display: block;
     width: 100px;
@@ -87,4 +108,37 @@ body * {
 .reveal .list li {
     font-size: 0.4em;
     font-weight: 300;
+}
+
+.reveal section img {
+    margin: 0;
+    border: 0;
+    box-shadow: none;
+}
+
+.reveal .inline-block {
+    display: flex;
+    max-width: 50%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.inline-block img {
+    width: 40%;
+}
+
+.reveal section img.android {
+    position: relative;
+    top: 10px;
+}
+
+.reveal pre {
+    box-shadow: none;
+}
+
+.reveal .link-small {
+    display: block;
+    font-weight: 300;
+    font-size: 0.4em;
 }
