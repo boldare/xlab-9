@@ -17,16 +17,18 @@ export class Header extends Component {
     }
 
     handleShowProfile() {
-        this.props.navigator.push({
-            name: 'DASHBOARD',
-            user: this.props.user,
-            direction: 'LEFT',
-        })
+        /*
+            ZADANIE NR.2 - Routing
+            TODO :: Powrót do wyboru nicku
+        */
     }
 
     handleLogOut() {
         firebase.auth().signOut()
-        this.props.navigator.immediatelyResetRouteStack([{ name: 'LOGIN' }])
+        /*
+            ZADANIE NR.2 - Routing
+            TODO :: wylogowanie
+        */
     }
 
     render() {
@@ -34,10 +36,10 @@ export class Header extends Component {
             <View style={styles.headerContainer}>
                 <View style={[styles.headerColumn, styles.headerColumnFirst]}>
                     {
-                        Platform.OS === 'ios' &&
-                        <TouchableOpacity onPress={() => { this.handleShowProfile() }}>
-                            <Icon name="ios-arrow-back" size={32} color="#635D5C" />
-                        </TouchableOpacity>
+                        /*
+                            ZADANIE NR.2 - Routing
+                            TODO :: Strzałka w tył - 'ios-arrow-back', tylko dla IOS'a
+                        */
                     }
                 </View>
                 <View style={styles.headerColumn}>

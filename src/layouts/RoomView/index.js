@@ -45,10 +45,9 @@ export class RoomView extends Component {
             ZADANIE NR.3 - WebSockety, Firebase
             TODO :: Ustawienie listener'a na dodawanie i wczytywanie pokoi
             {
-                userName
-                userId
-                userAvatar
-                message
+                name
+                owner
+                ownerId
                 creationDate
             }
         */
@@ -57,7 +56,7 @@ export class RoomView extends Component {
     handleAddRoom(newRoom) {
         /*
             ZADANIE NR.3 - WebSockety, Firebase
-            TODO :: Obsługa wysyłania wiadomości
+            TODO :: Obsługa dodawania pokoi
             {
                 name
                 owner
@@ -68,12 +67,10 @@ export class RoomView extends Component {
     }
 
     showAlert() {
-        Alert.alert(
-            'Brawo ty!',
-            'Pokoj zostal dodany',
-            [{text: 'OK'}],
-            { cancelable: false }
-        )
+        /*
+            ZADANIE NR.2 - Tworzenie własnego komponentu
+            TODO :: Informacja po dodaniu pokoju
+        */
     }
 
     render() {
@@ -91,14 +88,6 @@ export class RoomView extends Component {
                             isLoaded={this.state.isLoaded}
                             {...this.props}
                         />
-                        {
-                            this.state.isLoaded &&
-                            <FloatingInput
-                                onSubmit={(newRoom) => {
-                                    this.handleAddRoom(newRoom)
-                                }}
-                            />
-                        }
                     </View>
                 </Animated.Image>
                 {
