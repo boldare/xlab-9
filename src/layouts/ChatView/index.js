@@ -58,7 +58,7 @@ export class ChatView extends Component {
             creationDate: Date.now(),
         }).then(data => {
             this.setState({ message: '' })
-        });
+        })
     }
 
     render() {

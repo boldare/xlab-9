@@ -21,41 +21,20 @@ export class MessageList extends Component {
     }
 
     renderRow(rowData, sectionID, rowID) {
-        const isCurrentUser = rowData.userId === this.props.user.uid
+        /*
+            ZADANIE NR.4 - WYSYŁANIE WIADOMOŚCI
+            rowData {
+                userId
+                userAvatar
+                userName
+                message
+                creationDate
 
+            }
+        */
         return (
-            <View style={[styles.listItem, isCurrentUser ? styles.userListItem : {}]}>
-                {
-                    !isCurrentUser &&
-                    <Image
-                        key={rowData.userAvatar}
-                        source={{'uri': rowData.userAvatar}}
-                        style={styles.userImage}
-                        resizeMode="contain"
-                    />
-                }
-                <View style={styles.listItemBox}>
-                    {
-                        !isCurrentUser &&
-                        <Text style={styles.listItemOwner}>
-                            {rowData.userName}
-                        </Text>
-                    }
+            <View style={styles.listItem}>
 
-                    <View style={[styles.listItemTextBox, isCurrentUser ? styles.userTextBox : {}]}>
-                        <Text style={styles.listItemText}>
-                            {rowData.message}
-                        </Text>
-                    </View>
-                </View>
-                {
-                    isCurrentUser &&
-                    <Image
-                        source={{'uri': this.props.user.photoURL, cache: 'only-if-cached'}}
-                        style={styles.userImage}
-                        resizeMode="contain"
-                    />
-                }
             </View>
         )
     }
