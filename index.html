@@ -94,7 +94,107 @@
 					</section>
 				</section>
 				<section>
-						<h3 class="header">Firebase</h3>
+						<section>
+							<img class="header__image" src="/images/firebase-logo.png" />
+							<h1 class="header">Firebase</h1>
+						</section>
+						<section>
+							<img class="header__image header__image--big" src="/images/firebase-capabilities.png" />
+						</section>
+						<section>
+							<img class="header__image header__image--big" src="/images/firebase-schema.png" />
+						</section>
+						<section>
+							<h3 class="header header--small">Konfiguracja firebase</h3>
+							<img class="header__image header__image--big" src="/images/firebase-database.png" />
+						</section>
+						<section>
+							<h3 class="header header--small">Metody logowania</h3>
+							<img class="header__image header__image--big" src="/images/firebase-logowanie.png" />
+							<aside class="notes">
+								Uwierzytelnianie działa przy uzyciu standardów OAuth 2.0 oraz OpenID. 
+								Firebase ustępnia bardzo proste w uzyciu API do rejestracji i logowania.
+								Na zdjęciu widac dostępne metody logowania. W naszej aplikacji posłuzylismy się standardową metodą: email/hasło.
+								W innych przypadkach nalezy miec dodatkowo konto developerskie (serwer autoryzacyjny) w danej platformie (np. facebook, twitter).
+							</aside>
+						</section>
+						<section>
+							<h3 class="header header--small">Konfiguracja firebase</h3>
+							<pre><code data-trim data-noescape>
+								export const firebaseConfig = {
+									apiKey: "AIzaSyBsX1M9rZJxxlPyt8GpJz4oN0GT-1wXtfk",
+									authDomain: "xlab-react.firebaseapp.com",
+									databaseURL: "https://xlab-react.firebaseio.com",
+									projectId: "xlab-react",
+									storageBucket: "xlab-react.appspot.com",
+									messagingSenderId: "113610200437"
+								}
+							</code></pre>
+							<aside class="notes">
+								Dane konfiguracyjne firebase. Kazda aplikacja w firebase posiada wlasne unikalne dane, ktore odczytuje sie z panelu firebase. 
+								Mozna tutaj stworzyc własne konto w firebase i podpiąc wlasne dane.
+							</aside>
+						</section>
+						<section>
+							<h3 class="header header--small">Konfiguracja firebase</h3>
+							<pre><code data-trim data-noescape>
+								import { firebaseConfig } from './config'
+
+								const firebaseApp = firebase.initializeApp(firebaseConfig);
+							</code></pre>
+							<aside class="notes">
+								Wczytanie obiektu z konfiguracjami firebase.
+								Inicjalizacja firebase na podstawie pobranego obiektu.
+							</aside>
+						</section>
+						<section>
+							<h3 class="header header--small">firebase API - authentication</h3>
+							<pre><code data-trim data-noescape>
+								firebase.auth().onAuthStateChanged(userData => {
+									if (userData) {
+										// użytkownik jest zalogowany
+										console.log(userData)
+									} else {
+										// użytkownik nie jest zalogowany
+									}
+								})
+							</code></pre>
+							<aside class="notes">
+								Przykład odnoszący się do standardowej akcji udostępnionej w firebase - sprawdzenia czy uytkownik jest zalogowany.
+							</aside>
+						</section>
+						<section>
+							<h3 class="header header--small">firebase API - database</h3>
+							<pre><code data-trim data-noescape>
+								this.roomRef = firebase.database().ref().child('rooms')
+							</code></pre>
+
+							<pre><code data-trim data-noescape>
+								this.roomRef.on('value', rooms => {
+									console.log(rooms);
+
+									rooms.forEach((item) => {
+										console.log(item.val());
+									});
+								});
+							</code></pre>
+
+							<pre><code data-trim data-noescape>
+								this.roomRef.push({
+									name: 'Nazwa nowego pokoju',
+								}).then(data => {
+									// Akcja została wykonana poprawnie
+								})
+							</code></pre>
+							<aside class="notes">
+								Pierwszy fragment kodu odnosi się do pozyskania referencji obiektu z listą pokojów. Warto umieścic go w konstruktorze, aby był widoczny w przedstrzeni całego komponentu.
+								<br><br>
+								Drugi fragment kodu odnosi się do pobrania wszystkich pokojów i wyświetlenia w konsoli wartości. Działamy tutaj na zapisanej wczęsniej referencji odnoszącej się do obiektu 'rooms' z bazy danych firebase. 
+								Otrzymywane dane są w postaci obiektów.
+								<br><br>
+								Trzeci fragment odnosi się do dodawania wartości do bazy danym. Tutaj równiez pracuje się na zapisanej do zmiennej wcześniej refencji.
+							</aside>
+						</section>
 				</section>
 				<section>
 					<section>
@@ -136,15 +236,88 @@
 					</section>
 					<section>
 						<h3 class="header header--small">layouts/LayoutView.js</h3>
-						<img class="header__image header__image--medium" src="/images/header.png" />
+						<pre><code data-trim data-noescape>
+							import React, { Component } from 'react'
+							import { 
+								ScrollView, 
+								View, 
+								Text, 
+								Image 
+							} from 'react-native'
+							import KeyboardSpacer from 'react-native-keyboard-spacer'
+							import * as firebase from 'firebase'
+
+							import { styles } from './styles'
+							import { backgroundImage } from '../../images'
+							import { Button } from './../../components/Button'
+
+							Object.assign(styles, layoutStyles)
+						</code></pre>
 					</section>
 					<section>
 						<h3 class="header header--small">layouts/LayoutView.js</h3>
-						<img class="header__image header__image--medium" src="/images/top-header.png" />
+						<pre><code data-trim data-noescape>
+							export class LoginView extends Component {
+								constructor(props) {
+									super(props);
+									
+									this.state = {
+										email: ' ',
+										password: ' ',
+										error: false,
+									}
+								}
+								...
+							}
+						</code></pre>
 					</section>
 					<section>
-						<h3 class="header header--small">layouts/LayoutView.js</h3>
-						<img class="header__image header__image--medium" src="/images/comp-return.png" />
+						<h3 class="header header--small">Logowanie</h3>
+						<pre><code data-trim data-noescape>
+							handleSignIn() {
+								this.setState({ error: false })
+
+								/*
+									ZADANIE NR.1 - Logowanie
+									TODO :: Logowanie
+								*/
+							}
+						</code></pre>
+					</section>
+					<section>
+						<h3 class="header header--small">Rejestracja</h3>
+						<pre><code data-trim data-noescape>
+							handleSignUp() {
+								this.setState({ error: false })
+
+								/*
+									ZADANIE NR.1 - Logowanie
+									TODO :: Rejestracja
+								*/
+							}
+						</code></pre>
+					</section>
+					<section>
+						<h3 class="header header--small">Renderowanie</h3>
+						<pre><code data-trim data-noescape>
+							render() {
+								return (
+									&lt;ScrollView 
+										contentContainerStyle={styles.container}
+										scrollEnabled={false}
+									&gt;
+										&lt;Animated.Image source={backgroundImage} style={styles.backgroundImage}&gt;
+											&lt;View style={styles.row}&gt;
+												&lt;View style={[styles.section, styles.textSection]}&gt;
+													&lt;Text style={styles.title}&gt;
+														Witamy w aplikacji
+													&lt;/Text&gt;
+													&lt;Text style={styles.paragraph}&gt;
+														Aby dołączyć do chatu {'\n'}
+														należy się zarejestrować i zalogować {'\n'}
+													&lt;/Text&gt;
+									...
+						</code></pre>
 					</section>
 				</section>
 				<section>
