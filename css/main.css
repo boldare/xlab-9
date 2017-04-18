@@ -33,13 +33,21 @@ body * {
 }
 
 .floating-footer img {
-    max-width: 125px;
+    max-width: 100px;
 }
 
 .floating-footer p {
     font-size: 0.3em;
     text-align: center;
-    margin: 0;
+    margin: 5px 0;
+}
+
+.logo {
+    display: flex;
+}
+
+.logo__item {
+    width: 130px;
 }
 
 .reveal .controls .navigate-right, .reveal .controls .navigate-right.enabled {
