@@ -92,6 +92,12 @@ body * {
     max-width: none;
 }
 
+.reveal .header__image--logos {
+    height: 60px;
+    width: auto;
+    margin: 0 20px;
+}
+
 .reveal .image--circle {
     display: block;
     width: 100px;
