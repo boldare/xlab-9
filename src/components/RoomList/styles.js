@@ -9,14 +9,14 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
   },
   listView: {
-    margin: 20,
+    marginVertical: 20,
     paddingBottom: Platform.OS === 'io' ? 0 : 30,
   },
   listItem: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingLeft: 0,
+    paddingHorizontal: 20,
     paddingBottom: 12,
     marginTop: 12,
     borderBottomWidth: 1,
@@ -44,6 +44,20 @@ export const styles = StyleSheet.create({
   loader: {
     height: '100%',
     alignItems: 'center',
+    justifyContent: 'center',
+  },
+  swipableButton: {
+    backgroundColor: '#e8e8e8',
+    padding: 10,
+    paddingHorizontal: 30,
+    flex: 1,
+    justifyContent: 'center',
+  },
+  swipableDangerButton: {
+    backgroundColor: '#fb4545',
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    flex: 1,
     justifyContent: 'center',
   }
 })
