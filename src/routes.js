@@ -19,6 +19,12 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 export default class Navigation extends Component {
     constructor(props) {
         super(props)
+
+        /*
+            ZADANIE NR.2 - Routing
+            TODO :: Obsługa przycisku wstecz na urządzeniu
+            KOMPONENT :: BackAndroid
+        */
     }
     
     componentDidMount() {
