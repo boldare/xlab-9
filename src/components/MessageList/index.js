@@ -22,7 +22,7 @@ export class MessageList extends Component {
 
     renderRow(rowData, sectionID, rowID) {
         const isCurrentUser = rowData.userId === this.props.user.uid
-
+        console.log(rowData)
         return (
             <View style={[styles.listItem, isCurrentUser ? styles.userListItem : {}]}>
                 {
@@ -42,11 +42,23 @@ export class MessageList extends Component {
                         </Text>
                     }
 
-                    <View style={[styles.listItemTextBox, isCurrentUser ? styles.userTextBox : {}]}>
-                        <Text style={styles.listItemText}>
-                            {rowData.message}
-                        </Text>
-                    </View>
+                    {
+                        rowData.type === 'IMAGE' ? (
+                            <Image
+                                source={{'uri': `data:image/png;base64, ${rowData.data}`}}
+                                resizeMode="contain"
+                                style={styles.messagePhoto}
+                            />
+
+                        ) : (
+                            <View style={[styles.listItemTextBox, isCurrentUser ? styles.userTextBox : {}]}>
+                                <Text style={styles.listItemText}>
+                                    {rowData.message}
+                                </Text>
+                            </View>
+                        )
+                    }
+
                 </View>
                 {
                     isCurrentUser &&

@@ -57,4 +57,9 @@ export const styles = StyleSheet.create({
     borderRadius: 15,
     backgroundColor: Platform.OS === 'ios' ? '#A4C2EA' : 'rgba(0,0,0,0)',
   },
+  messagePhoto: {
+    width: Dimensions.get('window').width / 4,
+    height: 200,
+    borderRadius: 15,
+  }
 })

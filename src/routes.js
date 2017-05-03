@@ -11,6 +11,7 @@ import {
     DashboardView,
     RoomView,
     ChatView,
+    CameraView,
 } from './layouts'
 import { firebaseConfig } from './config'
 
@@ -72,6 +73,8 @@ export default class Navigation extends Component {
                 return (<RoomView navigator={navigator} user={route.user} />)
             case 'CHAT':
                 return (<ChatView navigator={navigator} {...route.passProps} />)
+            case 'CAMERA':
+                return (<CameraView navigator={navigator} {...route.passProps} />)
         }
     }
 

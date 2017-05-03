@@ -38,6 +38,8 @@ export class ChatView extends Component {
                     userAvatar: child.val().userAvatar,
                     message: child.val().message,
                     creationDate: child.val().creationDate,
+                    data: child.val().data,
+                    type: child.val().type,
                     _key: child.key
                 });
             });
@@ -61,6 +63,16 @@ export class ChatView extends Component {
         });
     }
 
+    takePhoto() {
+        this.props.navigator.push({
+            name: 'CAMERA',
+            passProps: {
+                room: this.props.room,
+                user: this.props.user,
+            }
+        })
+    }
+
     render() {
         return (
             <ScrollView
@@ -78,6 +90,18 @@ export class ChatView extends Component {
                     {...this.props}
                 />
                 <View style={styles.formContainer}>
+                    <TouchableHighlight 
+                            onPress={() => { this.takePhoto() }}
+                        style={styles.iconCamera}
+                    >
+                        <View>
+                            <Icon
+                                name="ios-camera"
+                                color="#fff"
+                                size={15}
+                            />
+                        </View>
+                    </TouchableHighlight>
                     <TextInput
                         style={styles.sendInput}
                         underlineColorAndroid="rgba(0,0,0,0)"
