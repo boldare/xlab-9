@@ -1,4 +1,4 @@
-# xlab-react-native
+# Example react-native app
 
 ## What you'll need :school_satchel:
 
